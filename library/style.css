@@ -1,0 +1,325 @@
+*{margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+	font-size: 15px;
+	font-family: 'Inter', sans-serif;
+	color: #000000;
+}
+
+a {
+	text-decoration: none;
+}
+
+ul li{
+	list-style: none;
+}
+
+img{
+	vertical-align: top;
+}
+
+h1 {
+	color: #ffffff;
+	font-size: 40px;
+	font-weight: 400;
+	line-height: 50px;
+	letter-spacing: 3px;
+	font-family: 'Forum', cursive;
+	text-transform: uppercase;
+}
+
+h2 {
+	text-align: center;
+	color: #0C0C0E;
+	font-family: Forum;
+	font-size: 40px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: capitalize; 
+}
+
+h3 {
+font-weight: 700;
+letter-spacing: 2px;
+text-transform: uppercase; 
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100%;
+}
+
+.container {
+	max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header {
+}
+
+.header-body {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #0C0C0E;
+	padding: 20px 0px;
+}
+.header-title {
+	padding-left: 20px;
+	color: #ffffff;
+	font-size: 30px;
+	font-weight: 400;
+	line-height: 50px;
+	letter-spacing: 0.6px;
+}
+
+.header-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.nav-menu {
+	padding-right: 40px;
+}
+.nav-list {
+
+}
+.nav-item {
+	display: flex;
+	gap: 30px;
+}
+.nav-link {
+	color: #ffffff;
+}
+
+.nav-link:hover {
+	color: #beb7b7
+}
+
+.img-profil {
+	padding-right: 20px;
+}
+.main {
+}
+
+.welcome {
+	background: url(./assets/img/Welcome.png) 0 50%/cover no-repeat;
+	width: 100%;
+	height: 100%;
+}
+
+.welcome-text {
+	padding: 220px 0px 160px 0px;
+	max-width: 520px;
+}
+.welcome-title {
+	text-align: center;
+	padding: 35px 40px;
+}
+.about {
+}
+.about-body {
+}
+.about-title {
+	padding: 20px 0px;
+	
+
+}
+.line {
+	width: 50px;
+	border-top: 1px solid #0C0C0E;
+	margin: 0 auto;
+	margin-bottom: 40px;
+}
+.about-text {
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 20px;
+	line-height: 40px; 
+}
+.about-slider {
+
+}
+.slider-wrapper {
+
+}
+.slide {
+	display: flex;
+	gap: 25px;
+	padding: 0px 20px;
+	overflow: hidden;
+}
+.slide-item {
+}
+.slider-dots {
+	display: flex;
+	justify-content: center;
+	margin: 40px 0px;
+
+	cursor: pointer;
+}
+
+.dots {
+	width: 16px;
+	height: 16px;
+	margin: 5px;
+	border-radius: 50%;
+	background-color: #000000;
+}
+
+.slider-dot3 {
+	background-color: #55200b;
+}
+
+.favorites {
+}
+.favorites-body {
+}
+.favorites-title {
+}
+.favorites-text {
+}
+.favorites-moduls {
+}
+.input-winter {
+}
+.books-box {
+}
+.box-item {
+}
+.above-title {
+}
+.book-title {
+}
+.book-text {
+}
+.book-img {
+}
+.book-btn {
+}
+.input-spring {
+}
+.input-autumn {
+}
+.cofeshop {
+}
+.cofeshop-body {
+}
+.cofeshop-title {
+}
+.cofeshop-text {
+}
+.cofeshop-menu {
+}
+.coffetea {
+}
+.coffetea-item {
+}
+.coffetea-text {
+}
+.coffetea-line {
+}
+.coffetea-price {
+}
+.desserts {
+}
+.desserts-item {
+}
+.desserts-text {
+}
+.desserts-line {
+}
+.contacts {
+}
+.contacts-body {
+}
+.contacts-title {
+}
+.contacts-box {
+}
+.contacts-text {
+}
+.contacts-subtitle {
+}
+.contacts-list {
+}
+.contacts-item {
+}
+.contacts-link {
+}
+.contacts-subtitle-two {
+}
+.contacts-end {
+}
+.contacts-map {
+}
+.map-img {
+}
+.card {
+}
+.card-body {
+}
+.card-title {
+}
+.card-line {
+}
+.card-box {
+}
+.card-find {
+}
+.find-title {
+}
+.card-subtitle {
+}
+.card-label {
+}
+.card-input {
+}
+.card-btn {
+}
+.card-get {
+}
+.get-title {
+}
+.get-text {
+}
+.get-btn-sign {
+}
+.get-btn-login {
+}
+.footer {
+}
+.footer-body {
+}
+.footer-top {
+}
+.top-adress {
+}
+.top-adress-text {
+}
+.top-adress-list {
+}
+.top-adress-item {
+}
+.top-adress-link {
+}
+.top-adress-img {
+}
+.top-schedule {
+}
+.footer-bottom {
+}
+.footer-year {
+}
+.name-school {
+}
+.footer-user-name {
+}
