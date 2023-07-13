@@ -201,17 +201,27 @@ text-transform: uppercase;
 .input-box {
 	display: flex;
 	margin-bottom: 40px;
+	gap: 90px;
 }
 
 input {
 	margin-right: 20px;
 }
-.input-box p {
-	margin-right: 90px;
+.input-box {
+	
 }
 
 .label-box {
 
+}
+
+
+.modul {
+	display: none;
+}
+
+.open {
+	display: block;
 }
 
 .label-winter {
@@ -219,15 +229,15 @@ input {
 }
 
 .label-summer {
-	display: none;
+	
 }
 
 .label-spring {
-	display: none;
+	
 }
 
 .label-autumn {
-	display: none;
+	
 }
 
 .books-box {

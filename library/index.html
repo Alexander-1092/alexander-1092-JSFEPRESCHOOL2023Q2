@@ -76,18 +76,26 @@
 						<div class="favotites-line line"></div>
 						<p class="favorites-text">Pick favorites of season</p>
 						<div class="favorites-moduls">
-							<form action="" class="input-box">
-								<input name="season" type="radio" class="input-winter" id="input-winter" checked>
-								<p>Winter</p>
-								<input name="season" type="radio" class="input-spring" id="input-spring">
-								<p>spring</p>						
-								<input name="season" type="radio" class="input-summer" id="input-summer">
-								<p>summer</p>
-								<input name="season" type="radio" class="input-autumn" id="input-autumn">
-								<p>autumn</p>
-							</form>
+							<div class="input-box">
+								<p>
+									<input name="season" type="radio" class="input-winter" id="input-winter" checked>
+									Winter
+								</p>
+								<p>								
+									<input name="season" type="radio" class="input-spring" id="input-spring">
+									spring
+								</p>
+								<p>
+									<input name="season" type="radio" class="input-summer" id="input-summer">
+									summer
+								</p>
+								<p>							
+									<input name="season" type="radio" class="input-autumn" id="input-autumn">
+									autumn
+								</p>
+							</div>
 							<div class="label-box">
-								<label for="input-winter" class="label-winter">
+								<label for="input-winter" class="label-winter modul" id="label-winter">
 									<div class="books-box">
 										<div class="box-item">
 											<p class="above-title">Staff Picks</p>
@@ -135,7 +143,7 @@
 										</div>
 									</div>
 								</label>
-								<label for="input-spring" class="label-spring">
+								<label for="input-spring" class="label-spring modul" id="label-spring">
 									<p>	spring</p>
 									<div class="books-box">
 										<div class="box-item">
@@ -181,7 +189,7 @@
 										</div>
 									</div>
 								</label>
-								<label for="input-summer" class="label-summer">
+								<label for="input-summer" class="label-summer modul" id="label-summer">
 									<p>summer</p>
 									<div class="books-box">
 										<div class="box-item">
@@ -231,7 +239,7 @@
 										</div>
 									</div>
 								</label>
-								<label for="input-autumn" class="label-autumn">
+								<label for="input-autumn" class="label-autumn modul" id="label-autumn">
 									<p>Autumn</p>
 									<div class="books-box">
 										<div class="box-item">
@@ -456,5 +464,6 @@
 			</div>
 		</footer>
 	</div>
+	<script src="./index.js"></script>
 </body>
 </html>
