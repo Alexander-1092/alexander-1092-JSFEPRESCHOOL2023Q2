@@ -199,25 +199,57 @@ text-transform: uppercase;
 }
 
 .input-box {
+
 	display: flex;
-	margin-bottom: 40px;
 	gap: 90px;
+	margin-bottom: 40px;
+
 }
 
-.input-box {
+
+.custom-checkbox {
 	position: relative;
-	
-}
-
-.label-box {
 }
 
 .radio {
-
+	position: absolute;
+	display: flex;
+	z-index: 1;
+	left: 3px;
+	top: 3px; 
+	opacity: 0;
 }
 
+.pseudo-radio {
+	display: flex;
+	position: relative;
+	display: inline-block;
+	width: 17px;
+	height: 17px;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+	border-radius: 50%;
+	vertical-align: sub;
+}
 
-/* стилизовать радиокнопку */
+.pseudo-radio::before {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	background-color: #000000;
+	border-radius: 50%;
+	transform: translate(-50%, -50%) scale(0);
+	transition: 0.2s ease-in; 
+} 
+
+.radio:checked + .pseudo-radio::before {
+	transform: translate(-50%, -50%) scale(1);
+}
+
 .modul {
 	display: none;
 }
