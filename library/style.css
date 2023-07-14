@@ -204,61 +204,120 @@ text-transform: uppercase;
 	gap: 90px;
 }
 
-input {
-	margin-right: 20px;
-}
 .input-box {
+	position: relative;
 	
 }
 
 .label-box {
+}
+
+.radio {
 
 }
 
 
+/* стилизовать радиокнопку */
 .modul {
 	display: none;
 }
+
 
 .open {
 	display: block;
 }
 
-.label-winter {
-	
-}
-
-.label-summer {
-	
-}
-
-.label-spring {
-	
-}
-
-.label-autumn {
-	
-}
 
 .books-box {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
+	display: grid;
+	grid-template-columns:1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	grid-column-gap: 260px;
 	padding: 0px 60px 0px 20px;
+	margin-bottom: 60px;
 }
+
 .box-item {
+	position: relative;
 	max-width: 550px;
+	height: 555px;
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	gap: 20px;
+	
 }
 .above-title {
+	position: relative;
+	font-family: Forum;
+	font-size: 20px;
+	line-height: 40px;
+	letter-spacing: 2px;
+	text-transform: capitalize; 
 }
+
+.books-line {
+	position: absolute;
+	top: 40px;
+	width: 60px;
+	border-top: 1px solid #BB945F;
+}
+
 .book-title {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 40px;
+	letter-spacing: 2px;
+	text-transform: uppercase; 
 }
+
+.book-title span {
+	text-transform: lowercase;
+}
+
 .book-text {
+	max-width: 355px;
+	line-height: 40px;
+	letter-spacing: 2px; 
+	text-transform: capitalize; 
 }
 .book-img {
+	position: absolute;
+	left: 390px;
+	top: 255px;
+
 }
 .book-btn {
+	display: inline-block;
+	justify-self: flex-end;
+	margin-top: auto;
+	max-width: 75px;
+	padding: 9px 27px;
+	background-color: #ffffff;
+	border: 1px solid #0C0C0E; 
+	border-radius: 2px; 
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1px; 
+	cursor: pointer;
+	transition-duration: 0.5s;
 }
+
+.book-btn:hover {
+	background-color: #BB945F;
+}
+
+.disabled {
+	color: #BB945F;
+	border: 1px solid #BB945F; 
+}
+
+.disabled:hover {
+	background-color: #ffffff;
+}
+
+
 .input-spring {
 }
 .input-autumn {
