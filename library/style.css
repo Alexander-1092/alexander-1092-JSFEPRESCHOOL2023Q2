@@ -423,7 +423,7 @@ text-transform: uppercase;
 .desserts-text {
 }
 .desserts-line {
-	margin-bottom: 40px;
+	
 }
 .contacts {
 }
@@ -602,26 +602,61 @@ text-transform: uppercase;
 .footer {
 }
 .footer-body {
+	background-color: #0C0C0E;
+	padding: 20px 20px 40px 20px;
 }
 .footer-top {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 30px;
 }
 .top-adress {
+	max-width: 230px;
 }
 .top-adress-text {
+	color: #FFF;
+	line-height: 20px; /* 133.333% */ 
 }
 .top-adress-list {
+	display: flex;
+	gap: 15px;
 }
 .top-adress-item {
+	margin-top: 18px;
 }
 .top-adress-link {
 }
 .top-adress-img {
 }
 .top-schedule {
+	max-width: 149px;
+	color: #FFF;
+	text-align: right; 
 }
+
+.top-schedule p {
+	margin-bottom: 10px;
+}
+
 .footer-bottom {
+	border-top: 1px solid #ffffff;
+	
 }
+
+.footer-bottom-box {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
 .footer-year {
+	color: #FFF;;
+	font-size: 20px;
+}
+
+.footer-bottom a {
+	color: #FFF;
+	font-size: 20px;
 }
 .name-school {
 }
