@@ -41,7 +41,11 @@ h2 {
 	font-weight: 400;
 	letter-spacing: 2px;
 	text-transform: capitalize; 
+	margin-bottom: 20px;
+	line-height: 40px; /* 200% */
+
 }
+
 
 h3 {
 font-weight: 700;
@@ -357,7 +361,7 @@ text-transform: uppercase;
 .cofeshop {
 }
 .cofeshop-body {
-	margin: 20px 20px 40px 20px;
+	padding: 20px 20px 40px 20px;
 }
 .cofeshop-title {
 	margin-bottom: 20px;
@@ -419,32 +423,55 @@ text-transform: uppercase;
 .desserts-text {
 }
 .desserts-line {
+	margin-bottom: 40px;
 }
 .contacts {
 }
 .contacts-body {
+	padding: 0px 20px 40px 20px
 }
 .contacts-title {
 }
 .contacts-box {
+	display: flex;
+	justify-content: space-between;
 }
 .contacts-text {
 }
 .contacts-subtitle {
+	font-size: 20px;
+	text-transform: capitalize; 
+	margin-bottom: 40px;
 }
 .contacts-list {
 }
 .contacts-item {
+	margin-bottom: 20px;
 }
 .contacts-link {
+	color: #000000;
+}
+
+.contacts-link:hover {
+	color: #413e3e;
 }
 .contacts-subtitle-two {
+	margin-top: 40px;
+	margin-bottom: 20px;
 }
 .contacts-end {
 }
+
+.contacts-end span {
+	font-weight: 700;
+	font-family: Inter;
+	letter-spacing: 2px;
+}
+
 .contacts-map {
 }
 .map-img {
+	object-fit: cover;
 }
 .card {
 }
