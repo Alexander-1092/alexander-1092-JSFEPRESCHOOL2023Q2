@@ -213,7 +213,6 @@ text-transform: uppercase;
 
 .radio {
 	position: absolute;
-	display: flex;
 	z-index: 1;
 	left: 3px;
 	top: 3px; 
@@ -221,7 +220,6 @@ text-transform: uppercase;
 }
 
 .pseudo-radio {
-	display: flex;
 	position: relative;
 	display: inline-block;
 	width: 17px;
@@ -242,8 +240,10 @@ text-transform: uppercase;
 	height: 6px;
 	background-color: #000000;
 	border-radius: 50%;
+	transform: scale(1);
 	transform: translate(-50%, -50%) scale(0);
 	transition: 0.2s ease-in; 
+
 } 
 
 .radio:checked + .pseudo-radio::before {
@@ -357,27 +357,65 @@ text-transform: uppercase;
 .cofeshop {
 }
 .cofeshop-body {
+	margin: 20px 20px 40px 20px;
 }
 .cofeshop-title {
+	margin-bottom: 20px;
 }
+
+.cofeshop-line {
+	margin-bottom: 40px;
+}
+
 .cofeshop-text {
+	
+		font-size: 20px;
+		line-height: 40px; /* 200% */
+		letter-spacing: 2px;
+		text-align: center;
+		margin-bottom: 40px;
 }
 .cofeshop-menu {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
-.coffetea {
+.menu {
+	width: 440px;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px; /* 200% */
+	letter-spacing: 2px;
+	text-transform: capitalize; 
 }
-.coffetea-item {
+
+.menu-item {
+	position: relative;
+	display: grid;
+	grid-template-columns: minmax(100px, 200px) minmax(50px, 100px) minmax(10px, 21px);
+	column-gap: 60px;
+	margin-bottom: 40px;
 }
 .coffetea-text {
 }
-.coffetea-line {
+.coffe-line {
+	position: relative;
+	top: 22.5px;
+	width: 100px;
+	border-top: 1px solid #BB945F;
 }
 .coffetea-price {
 }
 .desserts {
+	width: 482px;
 }
+
 .desserts-item {
+	grid-template-columns: minmax(100px, 212px) minmax(50px, 100px) minmax(10px, 21px);
 }
+
+
 .desserts-text {
 }
 .desserts-line {
