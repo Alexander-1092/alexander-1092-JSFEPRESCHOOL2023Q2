@@ -24,13 +24,15 @@ img{
 }
 
 h1 {
-	color: #ffffff;
-	font-size: 40px;
-	font-weight: 400;
-	line-height: 50px;
-	letter-spacing: 3px;
-	font-family: 'Forum', cursive;
-	text-transform: uppercase;
+		color: #FFF;
+		text-align: center;
+		font-family: 'Forum';
+		font-size: 40px;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 50px; /* 125% */
+		letter-spacing: 3px;
+		text-transform: uppercase; 
 }
 
 h2 {
@@ -38,12 +40,12 @@ h2 {
 	color: #0C0C0E;
 	font-family: Forum;
 	font-size: 40px;
+	font-style: normal;
 	font-weight: 400;
+	line-height: 40px; /* 100% */
 	letter-spacing: 2px;
 	text-transform: capitalize; 
 	margin-bottom: 20px;
-	line-height: 40px; /* 200% */
-
 }
 
 
@@ -61,11 +63,8 @@ text-transform: uppercase;
 }
 
 .container {
-	max-width: 1440px;
+	width: 1440px;
   margin: 0 auto;
-}
-
-.header {
 }
 
 .header-body {
@@ -73,15 +72,15 @@ text-transform: uppercase;
 	justify-content: space-between;
 	align-items: center;
 	background-color: #0C0C0E;
-	padding: 20px 0px;
+	padding: 20px;
 }
 .header-title {
-	padding-left: 20px;
 	color: #ffffff;
 	font-size: 30px;
 	font-weight: 400;
 	line-height: 50px;
 	letter-spacing: 0.6px;
+	margin-bottom: 0;
 }
 
 .header-box {
@@ -93,15 +92,18 @@ text-transform: uppercase;
 .nav-menu {
 	padding-right: 40px;
 }
-.nav-list {
 
-}
 .nav-item {
 	display: flex;
 	gap: 30px;
 }
 .nav-link {
 	color: #ffffff;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 50px
 }
 
 .nav-link:hover {
@@ -109,32 +111,31 @@ text-transform: uppercase;
 }
 
 .img-profil {
-	padding-right: 20px;
-}
-.main {
 }
 
-.welcome {
+.welcome-body {
 	background: url(./assets/img/Welcome.png) 0 50%/cover no-repeat;
 	width: 100%;
 	height: 100%;
 }
 
-.welcome-text {
+.welcome-box {
+	max-width: 600px;
 	padding: 220px 0px 160px 0px;
-	max-width: 520px;
 }
-.welcome-title {
-	text-align: center;
+
+.welcome-border {
+	background-color: #0C0C0E;
 	padding: 35px 40px;
 }
+
 .about {
 }
+
 .about-body {
 	padding: 20px;
 }
-.about-title {
-}
+
 .line {
 	width: 50px;
 	border-top: 1px solid #0C0C0E;
@@ -147,54 +148,50 @@ text-transform: uppercase;
 	font-size: 20px;
 	line-height: 40px; 
 }
-.about-slider {
 
-}
-.slider-wrapper {
-
-}
 .slide {
 	display: flex;
 	gap: 25px;
 	overflow: hidden;
 }
 
-.slide-item {
-}
-
 .slider-dots {
 	display: flex;
 	justify-content: center;
-	margin: 40px 0px;
-
-	cursor: pointer;
+	margin: 40px 0px 20px 0px;
 }
 
 .dots {
 	width: 16px;
 	height: 16px;
-	margin: 5px;
+	margin-right: 5px;
 	border-radius: 50%;
 	background-color: #0C0C0E;
+	padding: 5px;
+	cursor: pointer;
 }
+
+.dots:hover {
+	background-color: #BB945F;
+
+}
+
 
 .slider-dot1 {
 	background-color: #BB945F;
 }
 
-.favorites {
-}
 .favorites-body {
 	padding: 20px;
 }
-.favorites-title {
-	margin-bottom: 20px;
-}
+
 .favorites-text {
-	margin-left: 20px;
 	margin-bottom: 40px;
-	text-align:left;
+	color: #000;
+	text-align: left;
+	font-family: Inter;
 	font-size: 20px;
+	font-style: normal;
 	font-weight: 700;
 	line-height: normal; 
 }
@@ -203,27 +200,40 @@ text-transform: uppercase;
 
 .input-box {
 	display: flex;
-	gap: 90px;
+	justify-content: space-between;
+	max-width: 700px;
+	height: 24px;
 	margin-bottom: 40px;
-
 }
 
 .custom-checkbox {
 	position: relative;
+	display: flex;
 }
 
 .custom-checkbox label {
 	padding: 5px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	text-transform: capitalize;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal; 
+}
+
+.winter-bold {
+	font-weight: 700;
 }
 
 
 .radio {
 	position: absolute;
 	z-index: -1;
-	left: 3px;
-	top: 3px; 
 	opacity: 0;
+	width: 0;
+	height: 0;
 }
 
 .pseudo-radio {
@@ -234,9 +244,7 @@ text-transform: uppercase;
 	border: 1px solid #000000;
 	background-color: #ffffff;
 	border-radius: 50%;
-	vertical-align: sub;
 	margin-right: 20px;
-	padding: 5px;
 	cursor: pointer;
 }
 
@@ -246,23 +254,25 @@ text-transform: uppercase;
 	left: 50%;
 	top: 50%;
 	display: inline-block;
-	width: 6px;
-	height: 6px;
+	width: 8.5px;
+	height: 8.5px;
 	background-color: #000000;
 	border-radius: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	transition: 0.2s ease-in; 
 } 
 
-
 .radio:checked + .pseudo-radio::before {
 	transform: translate(-50%, -50%) scale(1);
 } 
 
+.radio-text {
+	align-items: flex-start;
+}
+
 .modul {
 	display: none;
 }
-
 
 .open {
 	display: block;
@@ -274,22 +284,26 @@ text-transform: uppercase;
 	grid-template-columns:1fr 1fr;
 	grid-template-rows: 1fr 1fr;
 	grid-column-gap: 260px;
-	padding: 0px 60px 0px 20px;
-	margin-bottom: 60px;
+	padding-right: 60px;
 }
 
 .box-item {
+	border: 1px solid #000000;
 	position: relative;
-	max-width: 550px;
+	padding-left: 20px;
+	width: 550px;
 	height: 555px;
 	margin-bottom: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
-	gap: 20px;
+
 	
 }
 .above-title {
+	position: relative;
+	margin-top: 15px;
+	margin-bottom: 0;
 	position: relative;
 	font-family: Forum;
 	font-size: 20px;
@@ -300,12 +314,14 @@ text-transform: uppercase;
 
 .books-line {
 	position: absolute;
-	top: 40px;
+	top: 53px;
 	width: 60px;
 	border-top: 1px solid #BB945F;
+	margin-bottom: 30px;
 }
 
 .book-title {
+	margin-top: 20px;
 	font-size: 15px;
 	font-weight: 700;
 	line-height: 40px;
@@ -327,12 +343,14 @@ text-transform: uppercase;
 	position: absolute;
 	left: 390px;
 	top: 255px;
-
 }
+
+
 .book-btn {
 	display: inline-block;
-	justify-self: flex-end;
+	justify-self: start;
 	margin-top: auto;
+	margin-bottom: 15px;
 	max-width: 75px;
 	padding: 9px 27px;
 	background-color: #ffffff;
@@ -349,6 +367,7 @@ text-transform: uppercase;
 	background-color: #BB945F;
 }
 
+
 .disabled {
 	color: #BB945F;
 	border: 1px solid #BB945F; 
@@ -358,16 +377,23 @@ text-transform: uppercase;
 	background-color: #ffffff;
 }
 
-
-.input-spring {
-}
-.input-autumn {
-}
-.cofeshop {
-}
 .cofeshop-body {
-	padding: 20px 20px 40px 20px;
+	padding: 0px 20px 20px 20px;
 }
+
+.coffe-subtitle {
+	text-align: left;
+	color: #BB945F;
+	font-family: Forum;
+	font-size: 40px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px; /* 100% */
+	letter-spacing: 2px;
+	text-transform: capitalize; 
+	margin-bottom: 40px;
+}
+
 .cofeshop-title {
 	margin-bottom: 20px;
 }
@@ -406,8 +432,7 @@ text-transform: uppercase;
 	column-gap: 60px;
 	margin-bottom: 40px;
 }
-.coffetea-text {
-}
+
 .coffe-line {
 	position: relative;
 	top: 22.5px;
@@ -422,8 +447,12 @@ text-transform: uppercase;
 
 .desserts-item {
 	grid-template-columns: minmax(100px, 212px) minmax(50px, 100px) minmax(10px, 21px);
+	text-align: right;
 }
 
+.dessert-subtitle {
+	text-align: right;
+}
 
 .desserts-text {
 }
