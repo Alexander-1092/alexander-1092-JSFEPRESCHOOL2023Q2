@@ -683,8 +683,13 @@ text-transform: uppercase;
 	margin-right: 0;
 }
 
-.footer-body {
+.footer {
 	background-color: #0C0C0E;
+}
+
+
+.footer-body {
+	/* background-color: #0C0C0E; */
 	padding: 20px 20px 44px 20px;
 }
 .footer-top {
@@ -737,7 +742,6 @@ text-transform: uppercase;
 
 .footer-bottom-box {
 	display: flex;
-	/* justify-content: space-between; */
 	align-items: center;
 	margin-top: 40px;
 	flex-wrap: wrap;
