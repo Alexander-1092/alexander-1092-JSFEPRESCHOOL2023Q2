@@ -62,3 +62,12 @@ checkboxAutumn.addEventListener('change', function(){
 })
 
 checkCheckboxWinter()
+
+
+const preventDigits = (sender) => {
+	sender.value = sender.value.replace(/\d/g, "")
+}
+
+const preventLetters = (sender) => {
+	sender.value = sender.value.replace(/[a-z]/, "").replace(/[A-Z]/, "").replace(/[*,_,&,^,%,$,#,@,!,<,>,?,/]/, "")
+}

@@ -471,10 +471,10 @@
 										<div class="find-box-frame">
 										<p class="card-subtitle">Brooklyn Public Library</p>
 										<label for="card-name" class="card-label">
-											<input class="card-input" id="card-name" type="text" name="name" placeholder="Reader's name">
+											<input class="card-input" id="card-name" type="text" name="name" placeholder="Reader's name" oninput="preventDigits(this)">
 										</label>
 										<label for="card-num" class="card-label">
-											<input class="card-input" id="card-num" type="text" name="name" placeholder="Card number">
+											<input class="card-input" id="card-num" type="text" name="name" placeholder="Card number" oninput="preventLetters(this)">
 										</label>
 									</div>
 									<button class="card-btn">Check the card</button>
