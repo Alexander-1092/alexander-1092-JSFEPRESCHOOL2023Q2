@@ -174,13 +174,22 @@ text-transform: uppercase;
 .slider-dots {
 	display: flex;
 	justify-content: center;
-	margin: 40px 0px 20px 0px;
+	margin: 30px 0px 20px 0px;
 }
+
+.dots-box {
+	width: 26px;
+	height: 26px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+}
+
 
 .dots {
 	width: 16px;
 	height: 16px;
-	margin-right: 10px;
 	border-radius: 50%;
 	background-color: #0C0C0E;
 	padding: 5px;
