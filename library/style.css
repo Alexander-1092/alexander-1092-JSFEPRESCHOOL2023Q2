@@ -397,6 +397,7 @@ text-transform: uppercase;
 .disabled {
 	color: #BB945F;
 	border: 1px solid #BB945F; 
+	cursor:auto
 }
 
 .disabled:hover {
