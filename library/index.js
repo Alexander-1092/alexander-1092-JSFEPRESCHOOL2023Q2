@@ -97,3 +97,12 @@ console.log(
 	изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы +2. \n
 	100/100`
 )
+
+const burger = document.querySelector('.burger');
+const menu = document.querySelector('.nav-list');
+
+
+burger.addEventListener('click', () => {
+	burger.classList.toggle('active')
+	menu.classList.toggle('active')
+})
