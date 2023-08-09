@@ -73,18 +73,25 @@ const preventLetters = (sender) => {
 }
 
 console.log(
-	`Вёрстка соответствует макету. Ширина экрана 768px +26 (есть небольшое расхождение с макетом, но в рамках 10px)\n 
+	`Вёрстка соответствует макету. Ширина экрана 768px (есть небольшое расхождение с макетом, но в рамках 10px) +26\n 
 	Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n
-	На ширине экрана 1024px реализовано адаптивное меню, расстояния от элементов соблюдены, плавность есть (не работают ссылки в адаптивной версии - 2) +10 \n
+	На ширине экрана 1024px реализовано адаптивное меню, расстояния от элементов соблюдены, плавность есть (не работают ссылки в адаптивной версии - 2) +12 \n
 
-	100/100`
+	50/50`
 )
 
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.nav-list');
+const link = document.querySelector('.nav-menu');
 
 
 burger.addEventListener('click', () => {
+	burger.classList.toggle('active')
+	menu.classList.toggle('active')
+})
+
+
+link.addEventListener('click', () => {
 	burger.classList.toggle('active')
 	menu.classList.toggle('active')
 })
