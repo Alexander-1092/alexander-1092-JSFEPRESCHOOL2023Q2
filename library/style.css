@@ -88,7 +88,6 @@ text-transform: uppercase;
 }
 
 .nav-menu {
-
 	padding-right: 40px;
 }
 
@@ -98,7 +97,6 @@ text-transform: uppercase;
 	transition: all 1s ease 0.2s;
 	
 }
-
 
 .burger {
 	position: relative;
@@ -112,10 +110,12 @@ text-transform: uppercase;
 	z-index: 2;
 }
 
+
 .burger.active {
-	transition: 0.5s;
+	transition: all 0.5s;
 	background: url(../library/assets/svg/burger-open.svg) no-repeat center;
 }
+
 
 .nav-list.active {
 	padding: 100px 108px;
