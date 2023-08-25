@@ -72,13 +72,7 @@ const preventLetters = (sender) => {
 	sender.value = sender.value.replace(/[a-z]/, "").replace(/[A-Z]/, "").replace(/[*,_,&,^,%,$,#,@,!,<,>,?,/]/, "")
 }
 
-console.log(
-	`Вёрстка соответствует макету. Ширина экрана 768px (есть небольшое расхождение с макетом, но в рамках 10px) +26\n 
-	Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n
-	На ширине экрана 1024px реализовано адаптивное меню, расстояния от элементов соблюдены, плавность есть (не работают ссылки в адаптивной версии - 2) +12 \n
 
-	50/50`
-)
 
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.nav-list');
@@ -92,6 +86,12 @@ burger.addEventListener('click', () => {
 
 
 link.addEventListener('click', () => {
-	burger.classList.toggle('active')
 	menu.classList.toggle('active')
+})
+
+window.addEventListener('click', (event) => {
+	if (event.target !== burger) {
+		menu.classList.remove('active')
+		burger.classList.remove('active')
+	}
 })
