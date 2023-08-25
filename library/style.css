@@ -231,7 +231,6 @@ text-transform: uppercase;
 	display: flex;
 	gap: 25px;
 	overflow: hidden;
-
 }
 
 .slide-item {
@@ -242,25 +241,42 @@ text-transform: uppercase;
 	transform: scale(1.2);
 }
 
+
 .arrow-next {
+	display: none;
+	padding: 5px;
 	position: absolute;
-	top: 52%;
-	right: 76px;
+	top: 51%;
+	right: 55px;
 	cursor: pointer;
-	z-index: 2;
+}
+
+.arrow-next :hover {
+	transform: scale(1.5);
 }
 
 .arrow-prew {
+	display: none;
+	padding: 5px;
 	position: absolute;
-	top: 52%;
-	left: 76px;
+	top: 51%;
+	left: 55px;
+	transform: rotate(180deg);
 	cursor: pointer;
 }
 
-.arrow-prew-svg {
-	transform: rotate(180deg);
+.arrow-prew :hover {
+	transform: scale(1.5);
 }
 
+@media (max-width: 964px) {
+	.arrow-next {
+		display: block;
+	}
+	.arrow-prew {
+		display: block;
+	}
+}
 
 @media (max-width: 1440px) {
 	.slide {
