@@ -95,3 +95,33 @@ window.addEventListener('click', (event) => {
 		burger.classList.remove('active')
 	}
 })
+
+const btnNext = document.querySelector('.arrowRight')
+const btnPrew = document.querySelector('.arrow-prew')
+const slide = document.querySelector('.slide')
+
+
+
+let size = 470
+
+btnNext.addEventListener('click', (event) => {
+
+	if (size >= 1800) {
+		size = 0
+	} else {
+		size = size + 470
+	}
+	slide.style.right = size + 'px'
+})
+
+
+
+btnPrew.addEventListener('click', (event) => {
+	if (size < 450) {
+		size = 1880
+	} else {
+		size = size - 470
+	}
+	slide.style.right = size + 'px'
+
+})
