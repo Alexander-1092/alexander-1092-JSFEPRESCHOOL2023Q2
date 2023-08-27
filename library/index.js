@@ -104,7 +104,7 @@ const sliderDots = document.querySelector('.slider-dots')
 
 let size = 0
 
-btnNext.addEventListener('click', (event) => {
+btnNext.addEventListener('click', () => {
 	
 	if (size >= 1800) {
 	} else {
@@ -130,7 +130,7 @@ btnNext.addEventListener('click', (event) => {
 })
 
 
-btnPrew.addEventListener('click', (event) => {
+btnPrew.addEventListener('click', () => {
 	if (size < 470) {sliderDots.children[0].classList.add('dot-Active')}
 	else if (size === 470) {
 		sliderDots.children[1].classList.remove('dot-Active')
@@ -147,14 +147,75 @@ btnPrew.addEventListener('click', (event) => {
 		sliderDots.children[3].classList.add('dot-Active')
 	}
 
-
 	if (size < 450) {
 	} else {
 		size = size - 470
 	}
 	slide.style.right = size + 'px'
-	
+})
 
+const WidthsliderContainer = document.querySelector('.slider-wrapper').clientWidth
+
+
+sliderDots.addEventListener('click', (event) => {
+	for (let index = 0; index < sliderDots.children.length; index++) {
+		sliderDots.children[index].classList.remove('dot-Active')
+	}
+
+	if ( WidthsliderContainer > 940) {
+		if (event.target.className === 'slider-dot1 dots') {
+			sliderDots.children[0].classList.add('dot-Active')
+			size = 0
+		} else if (event.target.className === 'slider-dot2 dots') {
+			sliderDots.children[1].classList.add('dot-Active')
+			size = 470
+		} else if (event.target.className === 'slider-dot3 dots') {
+			sliderDots.children[2].classList.add('dot-Active')
+			size = 940
+		} else if (event.target.className === 'slider-dot4 dots') {
+			sliderDots.children[3].classList.add('dot-Active')
+			size = 940
+		} else if (event.target.className === 'slider-dot5 dots') {
+			sliderDots.children[4].classList.add('dot-Active')
+			size = 940
+		}
+	} else if (WidthsliderContainer > 450) {
+		if (event.target.className === 'slider-dot1 dots') {
+			sliderDots.children[0].classList.add('dot-Active')
+			size = 0
+		} else if (event.target.className === 'slider-dot2 dots') {
+			sliderDots.children[1].classList.add('dot-Active')
+			size = 470
+		} else if (event.target.className === 'slider-dot3 dots') {
+			sliderDots.children[2].classList.add('dot-Active')
+			size = 940
+		} else if (event.target.className === 'slider-dot4 dots') {
+			sliderDots.children[3].classList.add('dot-Active')
+			size = 1410
+		} else if (event.target.className === 'slider-dot5 dots') {
+			sliderDots.children[4].classList.add('dot-Active')
+			size = 1410
+		}
+	} else if (WidthsliderContainer <= 450) {
+		if (event.target.className === 'slider-dot1 dots') {
+			sliderDots.children[0].classList.add('dot-Active')
+			size = 0
+		} else if (event.target.className === 'slider-dot2 dots') {
+			sliderDots.children[1].classList.add('dot-Active')
+			size = 470
+		} else if (event.target.className === 'slider-dot3 dots') {
+			sliderDots.children[2].classList.add('dot-Active')
+			size = 940
+		} else if (event.target.className === 'slider-dot4 dots') {
+			sliderDots.children[3].classList.add('dot-Active')
+			size = 1410
+		} else if (event.target.className === 'slider-dot5 dots') {
+			sliderDots.children[4].classList.add('dot-Active')
+			size = 1880
+		}
+	}
+
+	slide.style.right = size + 'px'
 })
 
 
