@@ -100,28 +100,61 @@ const btnNext = document.querySelector('.arrowRight')
 const btnPrew = document.querySelector('.arrow-prew')
 const slide = document.querySelector('.slide')
 
+const sliderDots = document.querySelector('.slider-dots')
 
-
-let size = 470
+let size = 0
 
 btnNext.addEventListener('click', (event) => {
-
+	
 	if (size >= 1800) {
-		size = 0
 	} else {
 		size = size + 470
 	}
 	slide.style.right = size + 'px'
+	
+	if (size < 470) {sliderDots.children[0].classList.add('dot-Active')}
+	else if (size === 470) {
+		sliderDots.children[0].classList.remove('dot-Active')
+		sliderDots.children[1].classList.add('dot-Active')
+	}
+	else if (size === 940) {
+		sliderDots.children[1].classList.remove('dot-Active')
+		sliderDots.children[2].classList.add('dot-Active')
+	} else if (size === 1410) {
+		sliderDots.children[2].classList.remove('dot-Active')
+		sliderDots.children[3].classList.add('dot-Active')
+	} else if (size === 1880) {
+		sliderDots.children[3].classList.remove('dot-Active')
+		sliderDots.children[4].classList.add('dot-Active')
+	}
 })
 
 
-
 btnPrew.addEventListener('click', (event) => {
+	if (size < 470) {sliderDots.children[0].classList.add('dot-Active')}
+	else if (size === 470) {
+		sliderDots.children[1].classList.remove('dot-Active')
+		sliderDots.children[0].classList.add('dot-Active')
+	}
+	else if (size === 940) {
+		sliderDots.children[2].classList.remove('dot-Active')
+		sliderDots.children[1].classList.add('dot-Active')
+	} else if (size === 1410) {
+		sliderDots.children[3].classList.remove('dot-Active')
+		sliderDots.children[2].classList.add('dot-Active')
+	} else if (size === 1880) {
+		sliderDots.children[4].classList.remove('dot-Active')
+		sliderDots.children[3].classList.add('dot-Active')
+	}
+
+
 	if (size < 450) {
-		size = 1880
 	} else {
 		size = size - 470
 	}
 	slide.style.right = size + 'px'
+	
 
 })
+
+
