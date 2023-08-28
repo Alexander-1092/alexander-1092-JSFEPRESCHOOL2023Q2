@@ -232,3 +232,16 @@ window.addEventListener('click', (event) => {
 	}
 })
 
+const profilLink = document.querySelector('.profil-registr')
+const modalRegister = document.querySelector('.modal-register')
+
+const showFormRegister = profilLink.addEventListener('click', () => {
+	modalRegister.classList.add('modal-register-active')
+})
+
+const closeModal = document.querySelector('.close-modal')
+
+
+const closeFormRegistr = closeModal.addEventListener('click', () =>{
+	modalRegister.classList.remove('modal-register-active')
+})
