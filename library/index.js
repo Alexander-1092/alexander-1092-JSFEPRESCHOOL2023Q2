@@ -245,3 +245,26 @@ const closeModal = document.querySelector('.close-modal')
 const closeFormRegistr = closeModal.addEventListener('click', () =>{
 	modalRegister.classList.remove('modal-register-active')
 })
+
+const btnForm = document.querySelector('.form-register')
+let countUser = 1
+
+const showDataUser = btnForm.addEventListener('submit', () => {
+	let userData = {
+		name: document.getElementById('form-register-name').value,
+		lastName: document.getElementById('form-register-lastName').value,
+		email: document.getElementById('form-register-email').value,
+		password: document.getElementById('form-register-password').value,
+	}
+	let nameKeyUser = 'user' + countUser.toString()
+	localStorage.setItem(nameKeyUser, JSON.stringify(userData))
+	countUser++
+	modalRegister.classList.remove('modal-register-active')
+})
+
+if (localStorage.getItem('user1')) {
+	let inicial = localStorage.getItem('user1')
+	console.log(JSON.parse(inicial).name)
+}
+
+
