@@ -163,17 +163,60 @@ text-transform: uppercase;
 }
 
 .img-profil {
-	cursor: pointer;
 	position: relative;
-	z-index: 2;
 }
 
-.img-profil:hover {
+.img-pic {
+	cursor: pointer;
+}
+
+.img-pic:hover {
 	opacity: 0.5;
 }
 
+.profil-modal {
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	padding: 5px 11px 10px 10px;
+	margin-top: 25px;
+	position: absolute;
+	z-index: 5;
+	left:-100%;
+	background-color: #fff;
+}
+
+.profil-modal-active {
+	display: flex;
+}
+
+.prifil-title {
+	font-size: 15px;
+	font-weight: 700;
+	margin-bottom: 5px;
+	font-family: Inter; 
+}
+
+.profil-line {
+	margin-bottom: 15px;
+	width: 40px;
+	height: 1px;
+	background-color: #BB945F;
+}
+
+.profil-text {
+	font-size: 15px;
+	margin-bottom: 10px;
+	cursor: pointer;
+	transition: all 1s;
+}
+
+.profil-text:hover {
+	color: #BB945F;
+}
+
 .welcome {
-		background: url(./assets/img/Welcome.png) 0 50%/cover no-repeat;
+	background: url(./assets/img/Welcome.png) 0 50%/cover no-repeat;
 }
 
 

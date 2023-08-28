@@ -219,3 +219,16 @@ sliderDots.addEventListener('click', (event) => {
 })
 
 
+const imgProfil = document.querySelector('.img-profil')
+const profilModul = document.querySelector('.profil-modal')
+
+const ShowProfilModal = imgProfil.addEventListener('click', (event) => {
+	profilModul.classList.toggle('profil-modal-active')
+})
+
+window.addEventListener('click', (event) => {
+	if (event.target.className !== 'img-pic') {
+		profilModul.classList.remove('profil-modal-active')
+	}
+})
+
