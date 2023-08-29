@@ -13,6 +13,11 @@ html,body{
 	overflow-x: hidden;
 }
 
+.body-hidden {
+	overflow: hidden;
+}
+
+
 a {
 	text-decoration: none;
 }
@@ -59,7 +64,10 @@ text-transform: uppercase;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
 
+.wrapper-inactive {
+	opacity: 0.5;
 }
 
 .container {
@@ -223,6 +231,7 @@ text-transform: uppercase;
 .modal-register {
 	display: none;
 	position: absolute;
+	z-index: 999;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);

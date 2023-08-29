@@ -234,9 +234,12 @@ window.addEventListener('click', (event) => {
 
 const profilLink = document.querySelector('.profil-registr')
 const modalRegister = document.querySelector('.modal-register')
+const wrapper = document.querySelector('.wrapper')
 
 const showFormRegister = profilLink.addEventListener('click', () => {
 	modalRegister.classList.add('modal-register-active')
+	wrapper.classList.add('wrapper-inactive')
+	document.body.classList.add('body-hidden')
 })
 
 const closeModal = document.querySelector('.close-modal')
@@ -244,7 +247,22 @@ const closeModal = document.querySelector('.close-modal')
 
 const closeFormRegistr = closeModal.addEventListener('click', () =>{
 	modalRegister.classList.remove('modal-register-active')
+	wrapper.classList.remove('wrapper-inactive')
+	document.body.classList.remove('body-hidden')
 })
+
+
+window.addEventListener('click', (event) => {
+	if (event.target.className === 'welcome-body' 
+	|| event.target.className === 'about-body'
+	|| event.target.className === 'header-body') {
+		modalRegister.classList.remove('modal-register-active')
+		wrapper.classList.remove('wrapper-inactive')
+		document.body.classList.remove('body-hidden')
+	}
+})
+
+
 
 const btnForm = document.querySelector('.form-register')
 let countUser = 1
@@ -262,9 +280,5 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	modalRegister.classList.remove('modal-register-active')
 })
 
-if (localStorage.getItem('user1')) {
-	let inicial = localStorage.getItem('user1')
-	console.log(JSON.parse(inicial).name)
-}
 
 
