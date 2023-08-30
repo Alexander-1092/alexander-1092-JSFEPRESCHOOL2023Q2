@@ -1,3 +1,4 @@
+///////slider favorites
 const inputBox = document.querySelector('.input-box')
 const labelBox = document.querySelector('.label-box')
 
@@ -43,12 +44,8 @@ document.querySelector('.input-autumn').addEventListener('change', (event) =>{
 	document.querySelector('.text-label-spring').classList.remove('book-bold')
 	document.querySelector('.text-label-summer').classList.remove('book-bold')
 }) 
-
-
-
-
-
-
+//======================//
+////validator in card
 const preventDigits = (sender) => {
 	sender.value = sender.value.replace(/\d/g, "")
 }
@@ -56,9 +53,9 @@ const preventDigits = (sender) => {
 const preventLetters = (sender) => {
 	sender.value = sender.value.replace(/[a-z]/, "").replace(/[A-Z]/, "").replace(/[*,_,&,^,%,$,#,@,!,<,>,?,/]/, "")
 }
+//////////////////
 
-
-
+//burger menu
 const burger = document.querySelector('.burger');
 const menu = document.querySelector('.nav-list');
 const link = document.querySelector('.nav-menu');
@@ -80,7 +77,9 @@ window.addEventListener('click', (event) => {
 		burger.classList.remove('active')
 	}
 })
+///////////////
 
+//slider in about
 const btnNext = document.querySelector('.arrowRight')
 const btnPrew = document.querySelector('.arrow-prew')
 const slide = document.querySelector('.slide')
@@ -202,6 +201,8 @@ sliderDots.addEventListener('click', (event) => {
 
 	slide.style.right = size + 'px'
 })
+////////////
+
 
 
 const imgProfil = document.querySelector('.img-profil')
@@ -221,14 +222,27 @@ const profilLink = document.querySelector('.profil-registr')
 const modalRegister = document.querySelector('.modal-register')
 const wrapper = document.querySelector('.wrapper')
 
+////open register
 const showFormRegister = profilLink.addEventListener('click', () => {
 	modalRegister.classList.add('modal-register-active')
 	wrapper.classList.add('wrapper-inactive')
 	document.body.classList.add('body-hidden')
 })
 
-const closeModal = document.querySelector('.close-modal')
+const modalLogin = document.querySelector('.modal-login')
+const underLoginLink = document.querySelector('.profil-login')
 
+///open login
+const showFormLogin = underLoginLink.addEventListener('click', () => {
+	modalLogin.classList.add('modal-register-active')
+	wrapper.classList.add('wrapper-inactive')
+	document.body.classList.add('body-hidden')
+})
+
+
+
+
+const closeModal = document.querySelector('.close-modal')
 
 const closeFormRegistr = closeModal.addEventListener('click', () =>{
 	modalRegister.classList.remove('modal-register-active')
@@ -237,11 +251,22 @@ const closeFormRegistr = closeModal.addEventListener('click', () =>{
 })
 
 
+const closeLogin = document.querySelector('.close-login')
+
+const closeFormLogin = closeLogin.addEventListener('click', () =>{
+	modalLogin.classList.remove('modal-register-active')
+	wrapper.classList.remove('wrapper-inactive')
+	document.body.classList.remove('body-hidden')
+})
+
+
+
 window.addEventListener('click', (event) => {
 	if (event.target.className === 'welcome-body' 
 	|| event.target.className === 'about-body'
 	|| event.target.className === 'header-body') {
 		modalRegister.classList.remove('modal-register-active')
+		modalLogin.classList.remove('modal-register-active')
 		wrapper.classList.remove('wrapper-inactive')
 		document.body.classList.remove('body-hidden')
 	}
@@ -273,5 +298,8 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	imgPic.classList.add('img-pic-inactive')
 })
 
+const profilRegistr = document.querySelector('.profil-Myregistr')
 
-
+const showMyProfil = useAvatar.addEventListener('click', () => {
+	profilRegistr.classList.toggle('profil-modal-active')
+})
