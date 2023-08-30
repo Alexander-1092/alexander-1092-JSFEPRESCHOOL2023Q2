@@ -250,7 +250,9 @@ window.addEventListener('click', (event) => {
 
 
 const btnForm = document.querySelector('.form-register')
-let countUser = 1
+
+const useAvatar = document.querySelector('.user-avatar')
+const imgPic = document.querySelector('.img-pic')
 
 const showDataUser = btnForm.addEventListener('submit', () => {
 	let userData = {
@@ -259,10 +261,16 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 		email: document.getElementById('form-register-email').value,
 		password: document.getElementById('form-register-password').value,
 	}
-	let nameKeyUser = 'user' + countUser.toString()
-	localStorage.setItem(nameKeyUser, JSON.stringify(userData))
-	countUser++
+	let userIdentif = String(userData.name) + userData.password
+
+	localStorage.setItem(userIdentif, JSON.stringify(userData))
 	modalRegister.classList.remove('modal-register-active')
+	wrapper.classList.remove('wrapper-inactive')
+	document.body.classList.remove('body-hidden')
+
+	useAvatar.classList.add('user-avatar-active')
+	useAvatar.innerHTML = userData.name[0] + userData.lastName[0]
+	imgPic.classList.add('img-pic-inactive')
 })
 
 
