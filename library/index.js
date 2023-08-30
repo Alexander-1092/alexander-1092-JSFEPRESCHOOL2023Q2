@@ -240,8 +240,6 @@ const showFormLogin = underLoginLink.addEventListener('click', () => {
 })
 
 
-
-
 const closeModal = document.querySelector('.close-modal')
 
 const closeFormRegistr = closeModal.addEventListener('click', () =>{
@@ -260,7 +258,6 @@ const closeFormLogin = closeLogin.addEventListener('click', () =>{
 })
 
 
-
 window.addEventListener('click', (event) => {
 	if (event.target.className === 'welcome-body' 
 	|| event.target.className === 'about-body'
@@ -273,7 +270,7 @@ window.addEventListener('click', (event) => {
 })
 
 
-
+/// open modul register
 const btnForm = document.querySelector('.form-register')
 
 const useAvatar = document.querySelector('.user-avatar')
@@ -298,8 +295,32 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	imgPic.classList.add('img-pic-inactive')
 })
 
+
+
+/// open login
 const profilRegistr = document.querySelector('.profil-Myregistr')
 
 const showMyProfil = useAvatar.addEventListener('click', () => {
 	profilRegistr.classList.toggle('profil-modal-active')
+})
+
+const formLogin = document.querySelector('.form-login')
+
+const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
+	let nameUser = document.getElementById('form-login-name').value
+	let password = document.getElementById('form-login-password').value
+	let identifKey = String(nameUser + password)
+
+	if (localStorage.getItem(identifKey)) {
+		modalLogin.classList.remove('modal-register-active')
+		wrapper.classList.remove('wrapper-inactive')
+		document.body.classList.remove('body-hidden')
+
+		let UserIndefData = JSON.parse(localStorage.getItem(identifKey))
+		useAvatar.classList.add('user-avatar-active')
+		useAvatar.innerHTML = UserIndefData.name[0] + UserIndefData.lastName[0]
+		imgPic.classList.add('img-pic-inactive')
+	} else {
+		alert('password or logs are incorrect')
+	}
 })
