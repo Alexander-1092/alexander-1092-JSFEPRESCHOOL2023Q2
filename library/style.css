@@ -542,7 +542,7 @@ text-transform: uppercase;
 	line-height: normal; 
 }
 
-.winter-bold {
+.book-bold {
 	font-weight: 700;
 }
 
@@ -588,6 +588,9 @@ text-transform: uppercase;
 	align-items: flex-start;
 }
 
+.label-box {
+}
+
 .modul {
 	display: none;
 }
@@ -602,6 +605,7 @@ text-transform: uppercase;
 	grid-template-rows: 1fr 1fr;
 	grid-column-gap: 260px;
 	padding-right: 60px;
+
 }
 
 @media (max-width: 1420px) {

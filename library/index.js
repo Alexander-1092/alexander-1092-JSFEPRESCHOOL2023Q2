@@ -1,67 +1,52 @@
-const checkboxWinter = document.getElementById('input-winter')
-const checkboxSpring = document.getElementById('input-spring')
-const checkboxSummer = document.getElementById('input-summer')
-const checkboxAutumn = document.getElementById('input-autumn')
+const inputBox = document.querySelector('.input-box')
+const labelBox = document.querySelector('.label-box')
 
-const labelWinter = document.getElementById('label-winter')
-const labelspring = document.getElementById('label-spring')
-const labelSummer = document.getElementById('label-summer')
-const labelAutumn = document.getElementById('label-autumn')
+inputBox.addEventListener('click', (event) => {
+	const arraySeason = event.target.parentNode.className
 
+		Array.from(labelBox.children).forEach(element => {
+			element.childNodes[1].classList.remove('books-box-opacity')
 
-function checkCheckboxWinter(){
-	if (checkboxWinter.checked) {
-		labelspring.classList.remove('open')
-		labelSummer.classList.remove('open')
-		labelAutumn.classList.remove('open')
-		labelWinter.classList.add('open')
-	}
-}
-
-checkboxWinter.addEventListener('change', function(){
-	checkCheckboxWinter()
+		if (arraySeason !== 'favorites-moduls') {
+			element.classList.remove('open')}
+		if (arraySeason.slice(6) === element.className.slice(6, 12)) {	
+			element.classList.add('open')
+		}
+			
+	})
 })
 
-function checkCheckboxSpring(){
-	if (checkboxSpring.checked) {
-		labelSummer.classList.remove('open')
-		labelAutumn.classList.remove('open')
-		labelWinter.classList.remove('open')
-		labelspring.classList.add('open')
-	}
-}
+document.querySelector('.input-winter').addEventListener('change', (event) =>{
+	document.querySelector('.text-label-winter').classList.add('book-bold')
+	document.querySelector('.text-label-spring').classList.remove('book-bold')
+	document.querySelector('.text-label-summer').classList.remove('book-bold')
+	document.querySelector('.text-label-autumn').classList.remove('book-bold')
+}) 
 
-checkboxSpring.addEventListener('change', function(){
-	checkCheckboxSpring()
-})
+document.querySelector('.input-spring').addEventListener('change', (event) =>{
+	document.querySelector('.text-label-spring').classList.add('book-bold')
+	document.querySelector('.text-label-winter').classList.remove('book-bold')
+	document.querySelector('.text-label-summer').classList.remove('book-bold')
+	document.querySelector('.text-label-autumn').classList.remove('book-bold')
+}) 
 
-function checkCheckboxSummer(){
-	if (checkboxSummer.checked) {
-		labelAutumn.classList.remove('open')
-		labelWinter.classList.remove('open')
-		labelspring.classList.remove('open')
-		labelSummer.classList.add('open')
-	}
-}
+document.querySelector('.input-summer').addEventListener('change', (event) =>{
+	document.querySelector('.text-label-summer').classList.add('book-bold')
+	document.querySelector('.text-label-winter').classList.remove('book-bold')
+	document.querySelector('.text-label-spring').classList.remove('book-bold')
+	document.querySelector('.text-label-autumn').classList.remove('book-bold')
+}) 
 
-checkboxSummer.addEventListener('change', function(){
-	checkCheckboxSummer()
-})
+document.querySelector('.input-autumn').addEventListener('change', (event) =>{
+	document.querySelector('.text-label-autumn').classList.add('book-bold')
+	document.querySelector('.text-label-winter').classList.remove('book-bold')
+	document.querySelector('.text-label-spring').classList.remove('book-bold')
+	document.querySelector('.text-label-summer').classList.remove('book-bold')
+}) 
 
-function checkCheckboxAutumn(){
-	if (checkboxAutumn.checked) {
-		labelWinter.classList.remove('open')
-		labelspring.classList.remove('open')
-		labelSummer.classList.remove('open')
-		labelAutumn.classList.add('open')
-	}
-}
 
-checkboxAutumn.addEventListener('change', function(){
-	checkCheckboxAutumn()
-})
 
-checkCheckboxWinter()
+
 
 
 const preventDigits = (sender) => {
