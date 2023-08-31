@@ -12,6 +12,7 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
+	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -21,6 +22,7 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'body-hidden'
 	&& event.target.parentNode.className != 'form-login'
 	&& event.target.parentNode.className != 'img-profil'
+	&& event.target.parentNode.className != 'box-item'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
@@ -293,12 +295,15 @@ const useAvatar = document.querySelector('.user-avatar')
 const imgPic = document.querySelector('.img-pic')
 
 const showDataUser = btnForm.addEventListener('submit', () => {
-	let userPassword = document.getElementById('form-register-password').value
+	let CardNumber = Math.random().toFixed(9) * 10**9
+	let vizites = 0
 	let userData = {
 		name: document.getElementById('form-register-name').value,
 		lastName: document.getElementById('form-register-lastName').value,
 		email: document.getElementById('form-register-email').value,
-		password: userPassword
+		password: document.getElementById('form-register-password').value,
+		cardNumber: String(CardNumber),
+		vizites: vizites
 	}
 	let userIdentif = String(userData.name) + userData.password
 
@@ -362,6 +367,10 @@ getSignUp.addEventListener('click', () => {
 
 
 const getLogin = document.querySelector('.get-login')
-
 getLogin.addEventListener('click', () => {openLoginMenu()})
 
+
+const bookBtn = document.querySelectorAll('.book-btn')
+
+bookBtn.forEach(element => {
+	element.addEventListener('click', () => {openLoginMenu()})});
