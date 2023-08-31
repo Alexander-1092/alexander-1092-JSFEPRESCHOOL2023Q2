@@ -12,7 +12,6 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
-	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -32,7 +31,6 @@ window.addEventListener('click', (event) => {
 	}
 })
 /////////
-
 
 ///////slider favorites
 const inputBox = document.querySelector('.input-box')
@@ -312,8 +310,11 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	wrapper.classList.remove('wrapper-inactive')
 	document.body.classList.remove('body-hidden')
 
+	
 	useAvatar.classList.add('user-avatar-active')
 	useAvatar.innerHTML = userData.name[0] + userData.lastName[0]
+
+	useAvatar.title = userData.name + ' ' + userData.lastName
 	imgPic.classList.add('img-pic-inactive')
 })
 
@@ -344,6 +345,7 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 		let UserIndefData = JSON.parse(localStorage.getItem(identifKey))
 		useAvatar.classList.add('user-avatar-active')
 		useAvatar.innerHTML = UserIndefData.name[0] + UserIndefData.lastName[0]
+		useAvatar.title = UserIndefData.name + ' ' + UserIndefData.lastName
 		imgPic.classList.add('img-pic-inactive')
 	} else {
 		alert('password or logs are incorrect')
@@ -373,4 +375,8 @@ getLogin.addEventListener('click', () => {openLoginMenu()})
 const bookBtn = document.querySelectorAll('.book-btn')
 
 bookBtn.forEach(element => {
-	element.addEventListener('click', () => {openLoginMenu()})});
+	if (useAvatar.className === 'user-avatar user-avatar-active') {
+		element.addEventListener('click', () => {openLoginMenu()})
+	}
+	});
+
