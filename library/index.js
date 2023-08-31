@@ -1,3 +1,37 @@
+const openRegistMenu = () => {
+	modalRegister.classList.add('modal-register-active')
+	wrapper.classList.add('wrapper-inactive')
+	document.body.classList.add('body-hidden')
+}
+
+const openLoginMenu = () => {
+	modalLogin.classList.add('modal-register-active')
+	wrapper.classList.add('wrapper-inactive')
+	document.body.classList.add('body-hidden')
+}
+
+//close modules when clicked outside of them
+window.addEventListener('click', (event) => {
+	if (event.target.parentNode.className != 'modal-register modal-register-active' 
+	&&	event.target.parentNode.className != 'form-register'
+	&& event.target.parentNode.className != 'get-box'
+	&& event.target.parentNode.className != 'modal-header'
+	&& event.target.parentNode.className != 'profil-modal'
+	&& event.target.parentNode.className != 'modal-login modal-register-active'
+	&& event.target.parentNode.className != 'body-hidden'
+	&& event.target.parentNode.className != 'form-login'
+	&& event.target.parentNode.className != 'img-profil'
+	)	{
+		modalRegister.classList.remove('modal-register-active')
+		modalLogin.classList.remove('modal-register-active')
+		wrapper.classList.remove('wrapper-inactive')
+		document.body.classList.remove('body-hidden')
+		profilRegistr.classList.remove('profil-modal-active')
+	}
+})
+/////////
+
+
 ///////slider favorites
 const inputBox = document.querySelector('.input-box')
 const labelBox = document.querySelector('.label-box')
@@ -224,20 +258,14 @@ const wrapper = document.querySelector('.wrapper')
 
 ////open register
 const showFormRegister = profilLink.addEventListener('click', () => {
-	modalRegister.classList.add('modal-register-active')
-	wrapper.classList.add('wrapper-inactive')
-	document.body.classList.add('body-hidden')
+	openRegistMenu()
 })
 
 const modalLogin = document.querySelector('.modal-login')
 const underLoginLink = document.querySelector('.profil-login')
 
 ///open login
-const showFormLogin = underLoginLink.addEventListener('click', () => {
-	modalLogin.classList.add('modal-register-active')
-	wrapper.classList.add('wrapper-inactive')
-	document.body.classList.add('body-hidden')
-})
+const showFormLogin = underLoginLink.addEventListener('click', () => {openLoginMenu()})
 
 
 const closeModal = document.querySelector('.close-modal')
@@ -255,18 +283,6 @@ const closeFormLogin = closeLogin.addEventListener('click', () =>{
 	modalLogin.classList.remove('modal-register-active')
 	wrapper.classList.remove('wrapper-inactive')
 	document.body.classList.remove('body-hidden')
-})
-
-
-window.addEventListener('click', (event) => {
-	if (event.target.className === 'welcome-body' 
-	|| event.target.className === 'about-body'
-	|| event.target.className === 'header-body') {
-		modalRegister.classList.remove('modal-register-active')
-		modalLogin.classList.remove('modal-register-active')
-		wrapper.classList.remove('wrapper-inactive')
-		document.body.classList.remove('body-hidden')
-	}
 })
 
 
@@ -304,6 +320,9 @@ const showMyProfil = useAvatar.addEventListener('click', () => {
 	profilRegistr.classList.toggle('profil-modal-active')
 })
 
+
+
+
 const formLogin = document.querySelector('.form-login')
 
 const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
@@ -324,3 +343,24 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 		alert('password or logs are incorrect')
 	}
 })
+/////
+
+const profilLogOut = document.querySelector('.profil-log-out')
+
+const exitProfile = profilLogOut.addEventListener('click', () => {
+	useAvatar.classList.remove('user-avatar-active')
+	imgPic.classList.remove('img-pic-inactive')
+	profilRegistr.classList.remove('profil-modal-active')
+})
+
+/// for btn Sign Up
+const getSignUp = document.querySelector('.get-sign-up')
+getSignUp.addEventListener('click', () => {
+	openRegistMenu()
+})
+
+
+const getLogin = document.querySelector('.get-login')
+
+getLogin.addEventListener('click', () => {openLoginMenu()})
+
