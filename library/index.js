@@ -293,11 +293,12 @@ const useAvatar = document.querySelector('.user-avatar')
 const imgPic = document.querySelector('.img-pic')
 
 const showDataUser = btnForm.addEventListener('submit', () => {
+	let userPassword = document.getElementById('form-register-password').value
 	let userData = {
 		name: document.getElementById('form-register-name').value,
 		lastName: document.getElementById('form-register-lastName').value,
 		email: document.getElementById('form-register-email').value,
-		password: document.getElementById('form-register-password').value,
+		password: userPassword
 	}
 	let userIdentif = String(userData.name) + userData.password
 
