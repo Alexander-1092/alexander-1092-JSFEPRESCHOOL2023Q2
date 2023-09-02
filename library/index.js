@@ -12,6 +12,7 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
+	console.log(event.target.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -21,7 +22,7 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'body-hidden'
 	&& event.target.parentNode.className != 'form-login'
 	&& event.target.parentNode.className != 'img-profil'
-	&& event.target.parentNode.className != 'box-item'
+	&& event.target.className != 'book-btn'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
@@ -375,7 +376,9 @@ getLogin.addEventListener('click', () => {openLoginMenu()})
 const bookBtn = document.querySelectorAll('.book-btn')
 
 bookBtn.forEach(element => {
-	if (useAvatar.className === 'user-avatar user-avatar-active') {
+	
+	if (useAvatar.className !== 'user-avatar user-avatar-active') {
+
 		element.addEventListener('click', () => {openLoginMenu()})
 	}
 	});
