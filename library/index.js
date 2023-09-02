@@ -12,7 +12,6 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
-	console.log(event.target.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -23,12 +22,24 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'form-login'
 	&& event.target.parentNode.className != 'img-profil'
 	&& event.target.className != 'book-btn'
+	&& event.target.className != 'profil-myprofil profil-text'
+	&& event.target.parentNode.className != 'profil-Myregistr profil-modal-active'
+	&& event.target.parentNode.className != 'modal-profil-box modal-profil-box-active'
+	&& event.target.parentNode.className != 'modal-profil-inform'
+	&& event.target.parentNode.className != 'modal-profile-card'
+	&& event.target.parentNode.className != 'modal-profil-bonus-box'
+	&& event.target.parentNode.className != 'modal-profil-books-box'
+	&& event.target.parentNode.className != 'profile-list-book'
+	&& event.target.parentNode.className != 'modal-profil-name'
+	&& event.target.parentNode.className != 'modal-profile-header'
+	&& event.target.parentNode.className != 'profile-footer-card'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
 		wrapper.classList.remove('wrapper-inactive')
 		document.body.classList.remove('body-hidden')
 		profilRegistr.classList.remove('profil-modal-active')
+		modalProfile.classList.remove('modal-profil-box-active')
 	}
 })
 /////////
@@ -293,8 +304,9 @@ const btnForm = document.querySelector('.form-register')
 const useAvatar = document.querySelector('.user-avatar')
 const imgPic = document.querySelector('.img-pic')
 
-const showDataUser = btnForm.addEventListener('submit', () => {
-	let CardNumber = Math.random().toFixed(9) * 10**9
+let CardNumber = Math.random().toFixed(9) * 10**9
+
+const showDataUser = btnForm.addEventListener('submit', () => {	
 	let vizites = 0
 	let userData = {
 		name: document.getElementById('form-register-name').value,
@@ -315,6 +327,7 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	useAvatar.classList.add('user-avatar-active')
 	useAvatar.innerHTML = userData.name[0] + userData.lastName[0]
 
+
 	useAvatar.title = userData.name + ' ' + userData.lastName
 	imgPic.classList.add('img-pic-inactive')
 })
@@ -323,10 +336,18 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 
 /// open login
 const profilRegistr = document.querySelector('.profil-Myregistr')
+const profilNumberCard = document.querySelector('.profil-number-card')
+
 
 const showMyProfil = useAvatar.addEventListener('click', () => {
+	profilModul.classList.remove('profil-modal-active')
 	profilRegistr.classList.toggle('profil-modal-active')
+	let loginPlusPassword = String(document.getElementById('form-login-name').value + document.getElementById('form-login-password').value)
+	let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
+	profilNumberCard.innerHTML = String(parsCard.cardNumber)
+	
 })
+
 
 
 
@@ -378,8 +399,28 @@ const bookBtn = document.querySelectorAll('.book-btn')
 bookBtn.forEach(element => {
 	
 	if (useAvatar.className !== 'user-avatar user-avatar-active') {
-
 		element.addEventListener('click', () => {openLoginMenu()})
 	}
 	});
 
+
+	const profilMyprofil = document.querySelector('.profil-myprofil')
+	const modalProfile = document.querySelector('.modal-profil-box')
+
+	const ShowmodulMyProfil = profilMyprofil.addEventListener('click', (event) => {
+		profilRegistr.classList.remove('profil-modal-active')
+		wrapper.classList.add('wrapper-inactive')
+		modalProfile.classList.toggle('modal-profil-box-active')
+		document.body.classList.add('body-hidden')
+	})
+
+
+
+
+
+
+
+
+
+
+	
