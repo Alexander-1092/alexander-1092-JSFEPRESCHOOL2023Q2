@@ -1,3 +1,6 @@
+let userBaseData = {}
+
+
 const openRegistMenu = () => {
 	modalRegister.classList.add('modal-register-active')
 	wrapper.classList.add('wrapper-inactive')
@@ -307,28 +310,26 @@ const imgPic = document.querySelector('.img-pic')
 let CardNumber = Math.random().toFixed(9) * 10**9
 
 const showDataUser = btnForm.addEventListener('submit', () => {	
-	let vizites = 0
-	let userData = {
-		name: document.getElementById('form-register-name').value,
-		lastName: document.getElementById('form-register-lastName').value,
-		email: document.getElementById('form-register-email').value,
-		password: document.getElementById('form-register-password').value,
-		cardNumber: String(CardNumber),
-		vizites: vizites
-	}
-	let userIdentif = String(userData.name) + userData.password
+	userBaseData.name = document.getElementById('form-register-name').value
+	userBaseData.lastName = document.getElementById('form-register-lastName').value
+	userBaseData.email = document.getElementById('form-register-email').value
+	userBaseData.password = document.getElementById('form-register-password').value
+	userBaseData.cardNumber = String(CardNumber)
+	userBaseData.vizites = 1
 
-	localStorage.setItem(userIdentif, JSON.stringify(userData))
+	let userIdentif = userBaseData.name + userBaseData.password
+
+	localStorage.setItem(userIdentif, JSON.stringify(userBaseData))
 	modalRegister.classList.remove('modal-register-active')
 	wrapper.classList.remove('wrapper-inactive')
 	document.body.classList.remove('body-hidden')
 
 	
 	useAvatar.classList.add('user-avatar-active')
-	useAvatar.innerHTML = userData.name[0] + userData.lastName[0]
+	useAvatar.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
 
 
-	useAvatar.title = userData.name + ' ' + userData.lastName
+	useAvatar.title = userBaseData.name + ' ' + userBaseData.lastName
 	imgPic.classList.add('img-pic-inactive')
 })
 
@@ -349,16 +350,23 @@ const showMyProfil = useAvatar.addEventListener('click', () => {
 })
 
 
-
-
-
 const formLogin = document.querySelector('.form-login')
 
 const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
-	let nameUser = document.getElementById('form-login-name').value
-	let password = document.getElementById('form-login-password').value
-	let identifKey = String(nameUser + password)
+	userBaseData.name = document.getElementById('form-login-name').value
+	userBaseData.password = document.getElementById('form-login-password').value
+	
+	let = dataForUserBaseData = JSON.parse(localStorage.getItem(userBaseData.name + userBaseData.password))	
+ console.log(showDataUser)
+	let identifKey = String(userBaseData.name + userBaseData.password)
+	userBaseData.cardNumber = dataForUserBaseData.cardNumber
+	userBaseData.email = dataForUserBaseData.email
+	userBaseData.lastName = dataForUserBaseData.lastName
+	userBaseData.vizites = dataForUserBaseData.vizites
+	userBaseData.vizites = userBaseData.vizites + 1
 
+
+	localStorage.setItem(identifKey, JSON.stringify(userBaseData))
 	if (localStorage.getItem(identifKey)) {
 		modalLogin.classList.remove('modal-register-active')
 		wrapper.classList.remove('wrapper-inactive')
@@ -372,6 +380,7 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	} else {
 		alert('password or logs are incorrect')
 	}
+	console.log(userBaseData)
 })
 /////
 
@@ -403,16 +412,40 @@ bookBtn.forEach(element => {
 	}
 	});
 
-
+//// open modul my-profile
 	const profilMyprofil = document.querySelector('.profil-myprofil')
 	const modalProfile = document.querySelector('.modal-profil-box')
+	const inicial = document.querySelector('.inicial')
+	const nameAndSurname = document.querySelector('.name-and-surname')
 
 	const ShowmodulMyProfil = profilMyprofil.addEventListener('click', (event) => {
+
+		// let nameUser = document.getElementById('form-login-name').value
+		// let password = document.getElementById('form-login-password').value
+		let identifKey = String(userBaseData.name + userBaseData.password)
+		let userIndefData = JSON.parse(localStorage.getItem(identifKey))
+		inicial.innerHTML = userIndefData.name[0] + userIndefData.lastName[0]
+		nameAndSurname.innerHTML = userIndefData.name + ' ' + userIndefData.lastName
+
+
 		profilRegistr.classList.remove('profil-modal-active')
 		wrapper.classList.add('wrapper-inactive')
 		modalProfile.classList.toggle('modal-profil-box-active')
 		document.body.classList.add('body-hidden')
+
+		
 	})
+
+
+	///close modul my-profile
+	const modalProfilClose = document.querySelector('.modal-profil-close')
+
+	modalProfilClose.addEventListener('click', () => {
+		modalProfile.classList.remove('modal-profil-box-active')
+		document.body.classList.remove('body-hidden')
+		wrapper.classList.remove('wrapper-inactive')
+	})
+
 
 
 
