@@ -1291,6 +1291,7 @@ text-transform: uppercase;
 
 
 .modal-profil-name {
+	width: 170px;
 	background-color: #0C0C0E;
 	padding: 149px 25px;
 	display: flex;
@@ -1313,6 +1314,7 @@ text-transform: uppercase;
 	padding: 5px 15px;
 	font-size: 20px;
 	font-weight: 400;
+	text-align: center;
 }
 
 .modal-profile-header {
@@ -1324,6 +1326,7 @@ text-transform: uppercase;
 }
 .modal-profile-title {
 	text-align: center;
+	flex-wrap: nowrap;
 	font-family: Forum;
 	font-size: 40px;
 	font-style: normal;

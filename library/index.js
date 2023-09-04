@@ -1,5 +1,12 @@
 let userBaseData = {}
 
+let govno = 0
+
+const visitsCounter = document.querySelector('.visit-counter')
+const bonusCounter = document.querySelector('.bonus-counter')
+const BookCounter = document.querySelector('.book-counter')
+
+
 
 const openRegistMenu = () => {
 	modalRegister.classList.add('modal-register-active')
@@ -316,6 +323,7 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	userBaseData.password = document.getElementById('form-register-password').value
 	userBaseData.cardNumber = String(CardNumber)
 	userBaseData.vizites = 1
+	userBaseData.counterBook = 0
 
 	let userIdentif = userBaseData.name + userBaseData.password
 
@@ -324,13 +332,18 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	wrapper.classList.remove('wrapper-inactive')
 	document.body.classList.remove('body-hidden')
 
-	
 	useAvatar.classList.add('user-avatar-active')
 	useAvatar.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
 
 
 	useAvatar.title = userBaseData.name + ' ' + userBaseData.lastName
 	imgPic.classList.add('img-pic-inactive')
+
+	visitsCounter.innerHTML = userBaseData.vizites
+
+	BookCounter.innerHTML = userBaseData.counterBook
+
+	
 })
 
 
@@ -355,15 +368,16 @@ const formLogin = document.querySelector('.form-login')
 const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.name = document.getElementById('form-login-name').value
 	userBaseData.password = document.getElementById('form-login-password').value
-	
+
 	let = dataForUserBaseData = JSON.parse(localStorage.getItem(userBaseData.name + userBaseData.password))	
- console.log(showDataUser)
 	let identifKey = String(userBaseData.name + userBaseData.password)
 	userBaseData.cardNumber = dataForUserBaseData.cardNumber
 	userBaseData.email = dataForUserBaseData.email
 	userBaseData.lastName = dataForUserBaseData.lastName
 	userBaseData.vizites = dataForUserBaseData.vizites
 	userBaseData.vizites = userBaseData.vizites + 1
+	userBaseData.counterBook = 0
+
 
 
 	localStorage.setItem(identifKey, JSON.stringify(userBaseData))
@@ -380,9 +394,16 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	} else {
 		alert('password or logs are incorrect')
 	}
-	console.log(userBaseData)
+	
+	visitsCounter.innerHTML = userBaseData.vizites
+
+	console.log(userBaseData.counterBook)
+	BookCounter.innerHTML = userBaseData.counterBook
+
 })
 /////
+
+
 
 const profilLogOut = document.querySelector('.profil-log-out')
 
@@ -402,15 +423,28 @@ getSignUp.addEventListener('click', () => {
 const getLogin = document.querySelector('.get-login')
 getLogin.addEventListener('click', () => {openLoginMenu()})
 
-
-const bookBtn = document.querySelectorAll('.book-btn')
-
-bookBtn.forEach(element => {
-	
-	if (useAvatar.className !== 'user-avatar user-avatar-active') {
-		element.addEventListener('click', () => {openLoginMenu()})
+///btn buy
+labelBox.addEventListener('click', (event) => {
+	console.log(event.target.innerHTML)
+	if(useAvatar.className != 'user-avatar user-avatar-active') {
+		openLoginMenu()
 	}
-	});
+	else {
+		if(event.target.innerHTML === 'Own'){
+			userBaseData.counterBook = userBaseData.counterBook - 1
+			event.target.innerHTML = 'Buy'
+			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+		} else {
+		userBaseData.counterBook = userBaseData.counterBook + 1
+		event.target.innerHTML = 'Own'
+		// event.target.setAttribute('disabled', 'disabled')
+		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+		}
+		
+	}
+})
+
+
 
 //// open modul my-profile
 	const profilMyprofil = document.querySelector('.profil-myprofil')
@@ -420,8 +454,6 @@ bookBtn.forEach(element => {
 
 	const ShowmodulMyProfil = profilMyprofil.addEventListener('click', (event) => {
 
-		// let nameUser = document.getElementById('form-login-name').value
-		// let password = document.getElementById('form-login-password').value
 		let identifKey = String(userBaseData.name + userBaseData.password)
 		let userIndefData = JSON.parse(localStorage.getItem(identifKey))
 		inicial.innerHTML = userIndefData.name[0] + userIndefData.lastName[0]
@@ -433,6 +465,7 @@ bookBtn.forEach(element => {
 		modalProfile.classList.toggle('modal-profil-box-active')
 		document.body.classList.add('body-hidden')
 
+		BookCounter.innerHTML = userBaseData.counterBook
 		
 	})
 
@@ -445,10 +478,6 @@ bookBtn.forEach(element => {
 		document.body.classList.remove('body-hidden')
 		wrapper.classList.remove('wrapper-inactive')
 	})
-
-
-
-
 
 
 
