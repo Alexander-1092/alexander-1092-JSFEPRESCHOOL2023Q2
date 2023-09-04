@@ -424,21 +424,33 @@ const getLogin = document.querySelector('.get-login')
 getLogin.addEventListener('click', () => {openLoginMenu()})
 
 ///btn buy
+
+
+
+
 labelBox.addEventListener('click', (event) => {
-	console.log(event.target.innerHTML)
 	if(useAvatar.className != 'user-avatar user-avatar-active') {
 		openLoginMenu()
 	}
 	else {
-		if(event.target.innerHTML === 'Own'){
+		console.log(event.target.className)
+		if(event.target.innerHTML === 'Own' 
+		&& event.target.className !== 'box-item'
+		&& event.target.className !== 'book-title'
+		&& event.target.className !== 'book-text'
+		&& event.target.className !== 'above-title'
+		){
 			userBaseData.counterBook = userBaseData.counterBook - 1
 			event.target.innerHTML = 'Buy'
 			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
-		} else {
-		userBaseData.counterBook = userBaseData.counterBook + 1
-		event.target.innerHTML = 'Own'
-		// event.target.setAttribute('disabled', 'disabled')
-		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+		} else if (event.target.className !== 'box-item'
+		&& event.target.className !== 'book-title'
+		&& event.target.className !== 'book-text'
+		&& event.target.className !== 'above-title') {
+			// console.log(event.target.parentNode.childNodes[5].innerHTML)
+			userBaseData.counterBook = userBaseData.counterBook + 1
+			event.target.innerHTML = 'Own'
+			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
 		}
 		
 	}
