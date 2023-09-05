@@ -1,10 +1,10 @@
 let userBaseData = {}
 
-let govno = 0
 
 const visitsCounter = document.querySelector('.visit-counter')
 const bonusCounter = document.querySelector('.bonus-counter')
 const BookCounter = document.querySelector('.book-counter')
+const profileFooterNumberCard = document.querySelector('.profile-footer-number-card')
 
 
 
@@ -354,12 +354,18 @@ const profilNumberCard = document.querySelector('.profil-number-card')
 
 
 const showMyProfil = useAvatar.addEventListener('click', () => {
-	profilModul.classList.remove('profil-modal-active')
-	profilRegistr.classList.toggle('profil-modal-active')
-	let loginPlusPassword = String(document.getElementById('form-login-name').value + document.getElementById('form-login-password').value)
-	let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
-	profilNumberCard.innerHTML = String(parsCard.cardNumber)
-	
+	if (userBaseData.length === 0) {
+		profilModul.classList.remove('profil-modal-active')
+		profilRegistr.classList.toggle('profil-modal-active')
+		let loginPlusPassword = String(document.getElementById('form-login-name').value + document.getElementById('form-login-password').value)
+		let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
+		profilNumberCard.innerHTML = String(parsCard.cardNumber)
+	}
+	// profilModul.classList.remove('profil-modal-active')
+	// profilRegistr.classList.toggle('profil-modal-active')
+	// let loginPlusPassword = String(document.getElementById('form-login-name').value + document.getElementById('form-login-password').value)
+	// let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
+	// profilNumberCard.innerHTML = String(parsCard.cardNumber)
 })
 
 
@@ -397,7 +403,6 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	
 	visitsCounter.innerHTML = userBaseData.vizites
 
-	console.log(userBaseData.counterBook)
 	BookCounter.innerHTML = userBaseData.counterBook
 
 })
@@ -425,6 +430,7 @@ getLogin.addEventListener('click', () => {openLoginMenu()})
 
 ///btn buy
 
+const profileLinkBook = document.querySelector('.profile-link-book')
 
 
 
@@ -433,7 +439,6 @@ labelBox.addEventListener('click', (event) => {
 		openLoginMenu()
 	}
 	else {
-		console.log(event.target.className)
 		if(event.target.innerHTML === 'Own' 
 		&& event.target.className !== 'box-item'
 		&& event.target.className !== 'book-title'
@@ -447,10 +452,23 @@ labelBox.addEventListener('click', (event) => {
 		&& event.target.className !== 'book-title'
 		&& event.target.className !== 'book-text'
 		&& event.target.className !== 'above-title') {
-			// console.log(event.target.parentNode.childNodes[5].innerHTML)
-			userBaseData.counterBook = userBaseData.counterBook + 1
-			event.target.innerHTML = 'Own'
-			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+
+
+		let nameBook = event.target.parentNode.childNodes[5].innerHTML
+		let indexTitleBook= String(nameBook).indexOf('<', 0)
+		let titleBook = nameBook.slice(0, indexTitleBook - 1)
+		nameBook = nameBook.replace('<span>', '').replace('</span>')
+		let indexAftorBook = String(nameBook).indexOf('>', 0)
+		let aftorBook = nameBook.slice(indexAftorBook + 1).trim().replace('fined', '')	
+		let titleAndAftorBook = titleBook + ',' + ' ' + aftorBook
+
+
+		profileLinkBook.insertAdjacentHTML('beforebegin', '<li>' + titleAndAftorBook + '</li>')
+		
+
+		userBaseData.counterBook = userBaseData.counterBook + 1
+		event.target.innerHTML = 'Own'
+		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
 		}
 		
 	}
@@ -478,6 +496,7 @@ labelBox.addEventListener('click', (event) => {
 		document.body.classList.add('body-hidden')
 
 		BookCounter.innerHTML = userBaseData.counterBook
+		profileFooterNumberCard.innerHTML = userBaseData.cardNumber
 		
 	})
 
@@ -492,9 +511,33 @@ labelBox.addEventListener('click', (event) => {
 	})
 
 
+/// when refreshing the page, it goes under the first post
+	const resetAcc = () => {
+		if (localStorage.length !== 0) {
+			let = baseLocal = JSON.parse(localStorage.getItem(localStorage.key(0)))
+			userBaseData = baseLocal
+			useAvatar.classList.add('user-avatar-active')
+			imgPic.classList.add('img-pic-inactive')
+			inicial.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
+			useAvatar.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
+			userBaseData.counterBook = 0
+		}
+	}
+	
+	useAvatar.addEventListener('click', ()=> {
+		profilModul.classList.remove('profil-modal-active')
+		profilRegistr.classList.toggle('profil-modal-active')
+		profilNumberCard.innerHTML = String(userBaseData.cardNumber)
+		visitsCounter.innerHTML = userBaseData.vizites
+		BookCounter.innerHTML = userBaseData.counterBook
+	})
+	resetAcc()
+	/////////////
 
+	
+const profileFooterCopy = document.querySelector('.profile-footer-copy')
 
-
-
-
+profileFooterCopy.addEventListener('click', () => {
+	navigator.clipboard.writeText(profileFooterNumberCard.innerHTML)
+})
 	
