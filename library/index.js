@@ -22,6 +22,7 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
+	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -43,6 +44,13 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'modal-profil-name'
 	&& event.target.parentNode.className != 'modal-profile-header'
 	&& event.target.parentNode.className != 'profile-footer-card'
+	&& event.target.parentNode.className != 'modal-library-box'
+	&& event.target.parentNode.className != 'form-modal-library'
+	&& event.target.parentNode.className != 'modal-library-header'
+	&& event.target.parentNode.className != 'text-modal-library'
+	&& event.target.parentNode.className != 'modal-library-card modal-library-card-active'
+	&& event.target.parentNode.className != 'library-code-box'
+	&& event.target.parentNode.className != 'library-btn-box'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
@@ -50,6 +58,7 @@ window.addEventListener('click', (event) => {
 		document.body.classList.remove('body-hidden')
 		profilRegistr.classList.remove('profil-modal-active')
 		modalProfile.classList.remove('modal-profil-box-active')
+		modalLibraryCard.classList.remove('modal-library-card-active')
 	}
 })
 /////////
@@ -431,7 +440,7 @@ getLogin.addEventListener('click', () => {openLoginMenu()})
 ///btn buy
 
 const profileLinkBook = document.querySelector('.profile-link-book')
-
+const modalLibraryCard = document.querySelector('.modal-library-card')
 
 
 labelBox.addEventListener('click', (event) => {
@@ -462,19 +471,29 @@ labelBox.addEventListener('click', (event) => {
 		let aftorBook = nameBook.slice(indexAftorBook + 1).trim().replace('fined', '')	
 		let titleAndAftorBook = titleBook + ',' + ' ' + aftorBook
 
-
 		profileLinkBook.insertAdjacentHTML('beforebegin', '<li>' + titleAndAftorBook + '</li>')
 		
-
 		userBaseData.counterBook = userBaseData.counterBook + 1
 		event.target.innerHTML = 'Own'
+		
 		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
-		}
+		
+		modalLibraryCard.classList.add('modal-library-card-active')
+		wrapper.classList.add('wrapper-inactive')
+		document.body.classList.add('body-hidden')
+	}
 		
 	}
 })
 
-
+////close modal Library Card
+const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
+modalLibrarryCross.addEventListener('click', () => {
+	modalLibraryCard.classList.remove('modal-library-card-active')
+	wrapper.classList.remove('wrapper-inactive')
+	document.body.classList.remove('body-hidden')
+})
+////
 
 //// open modul my-profile
 	const profilMyprofil = document.querySelector('.profil-myprofil')

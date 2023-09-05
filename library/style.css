@@ -1443,3 +1443,148 @@ text-transform: uppercase;
 .modal-register-active {
 	display: block;
 }
+
+.modal-library-card {
+	display: none;
+	position: absolute;
+	z-index: 2;
+	width: 640px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #fff;
+}
+
+.modal-library-card-active {
+	display: block;
+}
+
+.modal-library-header {
+	background-color: #0C0C0E;
+	padding: 20px 130px;
+}
+.modal-library-title {
+	color: #ffffff;
+	font-size: 40px;
+	text-align: center;
+	font-family: Forum;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 50% */
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+}
+
+.modal-librarry-cross {
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.modal-librarry-cross:hover {
+	transform: scale(1.2);
+}
+
+
+
+.modal-library-box {
+	display: flex;
+	padding: 30px 40px 40px 40px;
+	gap: 40px;
+}
+.form-modal-library {
+	width: 200px;
+	
+}
+.label-modal-library {
+	text-align: center;
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 133.333% */
+	letter-spacing: 0.3px; 
+}
+
+.library-modal {
+	width: 200px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #BB945F;
+}
+
+.input-library-bankcard {
+	
+}
+
+.library-code-box {
+	display: flex;
+	gap: 10px;
+	
+}
+
+
+.input-library-codeOne {
+	width: 45px;
+}
+.input-library-codeTwo {
+	width: 45px;
+	
+}
+.input-library-cvc {
+}
+.input-library-Cardholder {
+}
+.input-library-Postal {
+}
+.input-library-City {
+}
+
+.library-btn-box {
+	display: flex;
+}
+
+
+.btn-modal-library {
+	padding: 9px 27px;
+	color: #0C0C0E;
+	background-color: #ffffff;
+	border-radius: 2px;
+	border: 1px solid #0C0C0E;
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	margin-right: 25px;
+	margin-top: 10px;
+	cursor: pointer;
+	transition: all 0.4s ease;
+}
+
+.btn-modal-library:hover {
+	background-color: #BB945F;
+}
+
+.modal-library-price {
+	position: relative;
+	bottom: 0;
+	display: inline;
+	font-family: Inter;
+	width: 88px;
+	font-size: 20px;
+	font-weight: 700; 
+	line-height: 20px; 
+	letter-spacing: 2px;
+	align-self: flex-end;
+	
+}
+.text-modal-library {
+	width: 330px;
+	color: #8E8E8E;
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	line-height: 20px; /* 133.333% */
+	letter-spacing: 2px;
+}
