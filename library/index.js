@@ -71,7 +71,6 @@ inputBox.addEventListener('click', (event) => {
 
 		Array.from(labelBox.children).forEach(element => {
 			element.childNodes[1].classList.remove('books-box-opacity')
-
 		if (arraySeason !== 'favorites-moduls') {
 			element.classList.remove('open')}
 		if (arraySeason.slice(6) === element.className.slice(6, 12)) {	
@@ -332,6 +331,7 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	userBaseData.cardNumber = String(CardNumber)
 	userBaseData.vizites = 1
 	userBaseData.counterBook = 0
+	userBaseData.btnModullibrary = 0
 
 	let userIdentif = userBaseData.name + userBaseData.password
 
@@ -351,7 +351,6 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 
 	BookCounter.innerHTML = userBaseData.counterBook
 
-	
 })
 
 
@@ -389,6 +388,7 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.email = dataForUserBaseData.email
 	userBaseData.lastName = dataForUserBaseData.lastName
 	userBaseData.vizites = dataForUserBaseData.vizites
+	userBaseData.btnModullibrary  = dataForUserBaseData.btnModullibrary
 	userBaseData.vizites = userBaseData.vizites + 1
 	userBaseData.counterBook = 0
 
@@ -477,17 +477,19 @@ labelBox.addEventListener('click', (event) => {
 		
 		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
 		
-		modalLibraryCard.classList.add('modal-library-card-active')
-		wrapper.classList.add('wrapper-inactive')
-		document.body.classList.add('body-hidden')
-	}
 		
+		if (userBaseData.btnModullibrary === 0) {
+			modalLibraryCard.classList.add('modal-library-card-active')
+			wrapper.classList.add('wrapper-inactive')
+			document.body.classList.add('body-hidden')
+		}
+	}
 	}
 })
 
 ////close modal Library Card
 const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
-modalLibrarryCross.addEventListener('click', () => {
+	modalLibrarryCross.addEventListener('click', () => {
 	modalLibraryCard.classList.remove('modal-library-card-active')
 	wrapper.classList.remove('wrapper-inactive')
 	document.body.classList.remove('body-hidden')
@@ -522,7 +524,7 @@ modalLibrarryCross.addEventListener('click', () => {
 	///close modul my-profile
 	const modalProfilClose = document.querySelector('.modal-profil-close')
 
-	modalProfilClose.addEventListener('click', () => {
+		modalProfilClose.addEventListener('click', () => {
 		modalProfile.classList.remove('modal-profil-box-active')
 		document.body.classList.remove('body-hidden')
 		wrapper.classList.remove('wrapper-inactive')
@@ -552,14 +554,15 @@ modalLibrarryCross.addEventListener('click', () => {
 	resetAcc()
 	/////////////
 
-	
+//// copy number card
 const profileFooterCopy = document.querySelector('.profile-footer-copy')
 
 profileFooterCopy.addEventListener('click', () => {
 	navigator.clipboard.writeText(profileFooterNumberCard.innerHTML)
 })
-	
+/////
 
+////valodate form library 
 const formModalLibrary = document.querySelector('.form-modal-library')
 const btnModalLibrary = document.querySelector('.btn-modal-library')
 
@@ -573,7 +576,6 @@ const inputLibraryCity = document.querySelector('.input-library-City')
 
 
 formModalLibrary.addEventListener('change', ()=> {
-
 	if(inputLibraryBankcard.value.length === 16
 		&& inputLibraryCodeOne.value.length === 2
 		&& inputLibraryCodeTwo.value.length === 2
@@ -581,8 +583,18 @@ formModalLibrary.addEventListener('change', ()=> {
 		&& libraryCardholder.value.length >= 2
 		&& inputLibraryPostal.value.length > 3
 		&& inputLibraryCity.value.length > 3
-		) {			
-			btnModalLibrary.removeAttribute('disabled')
+		) {btnModalLibrary.removeAttribute('disabled')
 			btnModalLibrary.classList.add('btn-modal-library-active')
+
+			userBaseData.btnModullibrary = 1
+			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+			
 		}
 })
+/////
+formModalLibrary.addEventListener('submit', () =>{
+	modalLibraryCard.classList.remove('modal-library-card-active')
+	wrapper.classList.remove('wrapper-inactive')
+	document.body.classList.remove('body-hidden')
+})
+
