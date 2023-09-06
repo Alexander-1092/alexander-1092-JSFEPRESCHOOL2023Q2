@@ -317,11 +317,17 @@ const closeFormLogin = closeLogin.addEventListener('click', () =>{
 
 /// open modul register
 const btnForm = document.querySelector('.form-register')
-
+const cardBtn = document.querySelector('.card-btn ') 
 const useAvatar = document.querySelector('.user-avatar')
 const imgPic = document.querySelector('.img-pic')
+const cardInfo = document.querySelector('.card-info')
 
 let CardNumber = Math.random().toFixed(9) * 10**9
+
+const cardVisitCounter = document.querySelector('.card-visit-counter')
+const cardBonusCounter = document.querySelector('.card-bonus-counter')
+const cardBookCounter = document.querySelector('.card-book-counter')
+
 
 const showDataUser = btnForm.addEventListener('submit', () => {	
 	userBaseData.name = document.getElementById('form-register-name').value
@@ -348,9 +354,15 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 	imgPic.classList.add('img-pic-inactive')
 
 	visitsCounter.innerHTML = userBaseData.vizites
-
 	BookCounter.innerHTML = userBaseData.counterBook
+	cardName.setAttribute('placeholder', userBaseData.name + ' ' + userBaseData.lastName)
+	cardNumber.setAttribute('placeholder', userBaseData.cardNumber)
 
+	cardVisitCounter.innerHTML = userBaseData.vizites
+	cardBookCounter.innerHTML = userBaseData.counterBook
+
+	cardBtn.classList.add('card-btn-inactive')
+	cardInfo.classList.add('card-info-active')
 })
 
 
@@ -368,15 +380,13 @@ const showMyProfil = useAvatar.addEventListener('click', () => {
 		let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
 		profilNumberCard.innerHTML = String(parsCard.cardNumber)
 	}
-	// profilModul.classList.remove('profil-modal-active')
-	// profilRegistr.classList.toggle('profil-modal-active')
-	// let loginPlusPassword = String(document.getElementById('form-login-name').value + document.getElementById('form-login-password').value)
-	// let parsCard = JSON.parse(localStorage.getItem(loginPlusPassword))
-	// profilNumberCard.innerHTML = String(parsCard.cardNumber)
 })
 
 
 const formLogin = document.querySelector('.form-login')
+const cardName = document.getElementById('card-name')
+const cardNumber = document.getElementById('card-num')
+
 
 const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.name = document.getElementById('form-login-name').value
@@ -392,8 +402,6 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.vizites = userBaseData.vizites + 1
 	userBaseData.counterBook = 0
 
-
-
 	localStorage.setItem(identifKey, JSON.stringify(userBaseData))
 	if (localStorage.getItem(identifKey)) {
 		modalLogin.classList.remove('modal-register-active')
@@ -405,12 +413,20 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 		useAvatar.innerHTML = UserIndefData.name[0] + UserIndefData.lastName[0]
 		useAvatar.title = UserIndefData.name + ' ' + UserIndefData.lastName
 		imgPic.classList.add('img-pic-inactive')
+
+		cardName.setAttribute('placeholder', userBaseData.name + ' ' + userBaseData.lastName)
+		cardNumber.setAttribute('placeholder', userBaseData.cardNumber)
+
+		cardVisitCounter.innerHTML = userBaseData.vizites
+		cardBookCounter.innerHTML = userBaseData.counterBook
+
+		cardBtn.classList.add('card-btn-inactive')
+		cardInfo.classList.add('card-info-active')
 	} else {
 		alert('password or logs are incorrect')
 	}
 	
 	visitsCounter.innerHTML = userBaseData.vizites
-
 	BookCounter.innerHTML = userBaseData.counterBook
 
 })
@@ -424,6 +440,11 @@ const exitProfile = profilLogOut.addEventListener('click', () => {
 	useAvatar.classList.remove('user-avatar-active')
 	imgPic.classList.remove('img-pic-inactive')
 	profilRegistr.classList.remove('profil-modal-active')
+	cardBtn.classList.remove('card-btn-inactive')
+	cardInfo.classList.remove('card-info-active')
+
+	cardName.setAttribute('placeholder', "Reader's name")
+	cardNumber.setAttribute('placeholder', "Card number")
 })
 
 /// for btn Sign Up
@@ -441,7 +462,6 @@ getLogin.addEventListener('click', () => {openLoginMenu()})
 const profileLinkBook = document.querySelector('.profile-link-book')
 const modalLibraryCard = document.querySelector('.modal-library-card')
 
-
 labelBox.addEventListener('click', (event) => {
 	if(useAvatar.className != 'user-avatar user-avatar-active') {
 		openLoginMenu()
@@ -455,7 +475,9 @@ labelBox.addEventListener('click', (event) => {
 		){
 			userBaseData.counterBook = userBaseData.counterBook - 1
 			event.target.innerHTML = 'Buy'
+			
 			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+			cardBookCounter.innerHTML = userBaseData.counterBook
 		} else if (event.target.className !== 'box-item'
 		&& event.target.className !== 'book-title'
 		&& event.target.className !== 'book-text'
@@ -476,7 +498,7 @@ labelBox.addEventListener('click', (event) => {
 		event.target.innerHTML = 'Own'
 		
 		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
-		
+		cardBookCounter.innerHTML = userBaseData.counterBook
 		
 		if (userBaseData.btnModullibrary === 0) {
 			modalLibraryCard.classList.add('modal-library-card-active')
@@ -541,6 +563,15 @@ const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
 			inicial.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
 			useAvatar.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
 			userBaseData.counterBook = 0
+
+			cardName.setAttribute('placeholder', userBaseData.name + ' ' + userBaseData.lastName)
+			cardNumber.setAttribute('placeholder', userBaseData.cardNumber)
+
+			cardVisitCounter.innerHTML = userBaseData.vizites
+			cardBookCounter.innerHTML = userBaseData.counterBook
+
+			cardBtn.classList.add('card-btn-inactive')
+			cardInfo.classList.add('card-info-active')
 		}
 	}
 	
