@@ -1534,6 +1534,8 @@ text-transform: uppercase;
 	
 }
 .input-library-cvc {
+	width: 45px;
+	display: block;
 }
 .input-library-Cardholder {
 }
@@ -1562,7 +1564,7 @@ text-transform: uppercase;
 	transition: all 0.4s ease;
 }
 
-.btn-modal-library:hover {
+.btn-modal-library-active:hover {
 	background-color: #BB945F;
 }
 

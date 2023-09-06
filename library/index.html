@@ -102,25 +102,37 @@
 		<div class="modal-library-box">
 			<form action="" class="form-modal-library">
 				<label for="input-library-card" class="label-modal-library">Bank card numbe</label>
-				<input type="text" id="input-library-card" class="input-library-bankcard library-modal">
-				<label for="input-library-code" class="label-modal-library">Expiration code</label>
+				<input type="text" id="input-library-card" class="input-library-bankcard library-modal" min="16" maxlength="16"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 
+				<label for="input-library-code" class="label-modal-library">Expiration code</label>
 				<div class="library-code-box">
-					<input type="text" id="input-library-code" class="input-library-codeOne library-modal library-modal">
-					<input type="text" id="" class="input-library-codeTwo library-modal">
-				</div>
-			
+					<input type="text" id="input-library-code" class="input-library-codeOne library-modal library-modal" 
+					min="2" maxlength="2"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+					<input type="text" id="" class="input-library-codeTwo library-modal"
+					min="2" maxlength="2"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+				</div>		
 				<label for="input-library-cvc" class="label-modal-library">CVC</label>
-				<input type="text" id="input-library-cvc" class="input-library-cvc library-modal">
+				<input type="text" id="input-library-cvc" class="input-library-cvc library-modal"
+					min="3" maxlength="3"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				<label for="input-library-cardcholder" class="label-modal-library">Cardholder name</label>
-				<input type="text" id="input-library-cardcholder" class="input-library-Cardholder library-modal">
+				<input type="text" id="input-library-cardcholder" class="input-library-Cardholder library-modal"
+				min="2" maxlength="25"
+				oninput="this.value = this.value.replace(/[^A-z.' ']/g, '').replace(/(\..*)\./g, '$1');">
 				<label for="input-library-Postal" class="label-modal-library">Postal code</label>
-				<input type="text" id="input-library-Postal" class="input-library-Postal library-modal">
+				<input type="text" id="input-library-Postal" class="input-library-Postal library-modal"
+				min="2" maxlength="50"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				<label for="input-library-City" class="label-modal-library">City / Town</label>
-				<input type="text" id="input-library-City" class="input-library-City library-modal">
+				<input type="text" id="input-library-City" class="input-library-City library-modal"
+					min="2" maxlength="50"
+				oninput="this.value = this.value.replace(/[^A-z.]/g, '').replace(/(\..*)\./g, '$1');">
 
 				<div class="library-btn-box">
-					<button class="btn-modal-library">Buy</button>
+					<button class="btn-modal-library" disabled>Buy</button>
 					<div class="modal-library-price">$ 25.00</div>
 				</div>
 

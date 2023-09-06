@@ -22,7 +22,6 @@ const openLoginMenu = () => {
 
 //close modules when clicked outside of them
 window.addEventListener('click', (event) => {
-	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -560,3 +559,30 @@ profileFooterCopy.addEventListener('click', () => {
 	navigator.clipboard.writeText(profileFooterNumberCard.innerHTML)
 })
 	
+
+const formModalLibrary = document.querySelector('.form-modal-library')
+const btnModalLibrary = document.querySelector('.btn-modal-library')
+
+const inputLibraryBankcard = document.querySelector('.input-library-bankcard')
+const inputLibraryCodeOne = document.querySelector('.input-library-codeOne')
+const inputLibraryCodeTwo = document.querySelector('.input-library-codeTwo')
+const inputLibraryCvc = document.querySelector('.input-library-cvc')
+const libraryCardholder = document.querySelector('.input-library-Cardholder')
+const inputLibraryPostal = document.querySelector('.input-library-Postal')
+const inputLibraryCity = document.querySelector('.input-library-City')
+
+
+formModalLibrary.addEventListener('change', ()=> {
+
+	if(inputLibraryBankcard.value.length === 16
+		&& inputLibraryCodeOne.value.length === 2
+		&& inputLibraryCodeTwo.value.length === 2
+		&& inputLibraryCvc.value.length === 3
+		&& libraryCardholder.value.length >= 2
+		&& inputLibraryPostal.value.length > 3
+		&& inputLibraryCity.value.length > 3
+		) {			
+			btnModalLibrary.removeAttribute('disabled')
+			btnModalLibrary.classList.add('btn-modal-library-active')
+		}
+})
