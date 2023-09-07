@@ -39,8 +39,9 @@ const showModulMyProfil = () => {
 
 // close modules when clicked outside of them
 window.addEventListener('click', (event) => {
+	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
-	&&	event.target.parentNode.className != 'form-register'
+	&& event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
 	&& event.target.parentNode.className != 'modal-header'
 	&& event.target.parentNode.className != 'profil-modal'
@@ -68,6 +69,7 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'library-code-box'
 	&& event.target.parentNode.className != 'library-btn-box'
 	&& event.target.parentNode.className != 'card-get-authorization card-get-authorization-active'
+	&& event.target.parentNode.className != 'under-form'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
@@ -332,6 +334,14 @@ const closeFormLogin = closeLogin.addEventListener('click', () =>{
 	document.body.classList.remove('body-hidden')
 })
 
+const ModulloginUnderLink = document.querySelector('.under-login-link')
+
+ModulloginUnderLink.addEventListener('click', () => {
+	modalLogin.classList.remove('modal-register-active')
+	openRegistMenu()
+})
+
+
 
 /// open modul register
 const btnForm = document.querySelector('.form-register')
@@ -349,7 +359,8 @@ const cardBonusCounter = document.querySelector('.card-bonus-counter')
 const cardBookCounter = document.querySelector('.card-book-counter')
 
 
-const showDataUser = btnForm.addEventListener('submit', () => {	
+btnForm.addEventListener('submit', () => {	
+
 	userBaseData.name = document.getElementById('form-register-name').value
 	userBaseData.lastName = document.getElementById('form-register-lastName').value
 	userBaseData.email = document.getElementById('form-register-email').value
@@ -368,7 +379,6 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 
 	useAvatar.classList.add('user-avatar-active')
 	useAvatar.innerHTML = userBaseData.name[0] + userBaseData.lastName[0]
-
 
 	useAvatar.title = userBaseData.name + ' ' + userBaseData.lastName
 	imgPic.classList.add('img-pic-inactive')
@@ -458,6 +468,11 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 })
 /////
 
+const underFormLink = document.querySelector('.under-form-link')
+underFormLink.addEventListener('click', ()=> {
+	modalRegister.classList.remove('modal-register-active')
+	openLoginMenu()
+})
 
 
 const profilLogOut = document.querySelector('.profil-log-out')
