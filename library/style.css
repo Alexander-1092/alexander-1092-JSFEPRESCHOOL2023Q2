@@ -1112,6 +1112,15 @@ text-transform: uppercase;
 	display: none;
 }
 
+.card-get {
+	display: block;
+}
+
+.card-get-inactive {
+	display: none;
+}
+
+
 .get-title {
 	text-align: right;
 	margin-bottom: 37px;
@@ -1168,6 +1177,61 @@ text-transform: uppercase;
 .get-btn:last-child {
 	margin-right: 0;
 }
+
+.card-get-authorization {
+	display: none;
+	flex-direction: column;
+	gap: 35px;
+	align-items: flex-end;
+}
+
+.card-get-authorization-active {
+	display: flex;
+}
+
+.get-title-authorization {
+	color: #000;
+	font-family: Forum;
+	font-size: 30px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	letter-spacing: 0.6px;
+
+}
+.get-text-authorization {
+	width: 456px;
+	text-align: right;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 40px; /* 200% */
+	letter-spacing: 0.4px;
+}
+.btn-profile-authorization {
+	width: 75px;
+	padding: 10px 0px;
+	text-align: center;
+	background-color: #fff;
+	border-radius: 2px;
+	border: 1px solid #0C0C0E;
+	cursor: pointer;
+
+	font-family: Inter;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 1px;
+	transition: all 0.7s ease;
+}
+
+.btn-profile-authorization:hover {
+	background-color: #BB945F;
+}
+
+
 
 .footer {
 	background-color: #0C0C0E;

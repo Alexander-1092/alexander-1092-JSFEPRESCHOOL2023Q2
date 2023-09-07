@@ -20,7 +20,24 @@ const openLoginMenu = () => {
 	document.body.classList.add('body-hidden')
 }
 
-//close modules when clicked outside of them
+const showModulMyProfil = () => {
+	let identifKey = String(userBaseData.name + userBaseData.password)
+	let userIndefData = JSON.parse(localStorage.getItem(identifKey))
+	inicial.innerHTML = userIndefData.name[0] + userIndefData.lastName[0]
+	nameAndSurname.innerHTML = userIndefData.name + ' ' + userIndefData.lastName
+
+
+	profilRegistr.classList.remove('profil-modal-active')
+	wrapper.classList.add('wrapper-inactive')
+	modalProfile.classList.toggle('modal-profil-box-active')
+	document.body.classList.add('body-hidden')
+
+	BookCounter.innerHTML = userBaseData.counterBook
+	profileFooterNumberCard.innerHTML = userBaseData.cardNumber
+}
+
+
+// close modules when clicked outside of them
 window.addEventListener('click', (event) => {
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&&	event.target.parentNode.className != 'form-register'
@@ -50,6 +67,7 @@ window.addEventListener('click', (event) => {
 	&& event.target.parentNode.className != 'modal-library-card modal-library-card-active'
 	&& event.target.parentNode.className != 'library-code-box'
 	&& event.target.parentNode.className != 'library-btn-box'
+	&& event.target.parentNode.className != 'card-get-authorization card-get-authorization-active'
 	)	{
 		modalRegister.classList.remove('modal-register-active')
 		modalLogin.classList.remove('modal-register-active')
@@ -321,6 +339,8 @@ const cardBtn = document.querySelector('.card-btn ')
 const useAvatar = document.querySelector('.user-avatar')
 const imgPic = document.querySelector('.img-pic')
 const cardInfo = document.querySelector('.card-info')
+const cardget = document.querySelector('.card-get')
+const cardGetAuthorization = document.querySelector('.card-get-authorization')
 
 let CardNumber = Math.random().toFixed(9) * 10**9
 
@@ -363,6 +383,9 @@ const showDataUser = btnForm.addEventListener('submit', () => {
 
 	cardBtn.classList.add('card-btn-inactive')
 	cardInfo.classList.add('card-info-active')
+
+	cardget.classList.add('card-get-inactive')
+	cardGetAuthorization.classList.add('card-get-authorization-active')
 })
 
 
@@ -422,6 +445,9 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 
 		cardBtn.classList.add('card-btn-inactive')
 		cardInfo.classList.add('card-info-active')
+
+		cardget.classList.add('card-get-inactive')
+		cardGetAuthorization.classList.add('card-get-authorization-active')
 	} else {
 		alert('password or logs are incorrect')
 	}
@@ -445,6 +471,9 @@ const exitProfile = profilLogOut.addEventListener('click', () => {
 
 	cardName.setAttribute('placeholder', "Reader's name")
 	cardNumber.setAttribute('placeholder', "Card number")
+
+	cardget.classList.remove('card-get-inactive')
+	cardGetAuthorization.classList.remove('card-get-authorization-active')
 })
 
 /// for btn Sign Up
@@ -524,22 +553,8 @@ const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
 	const inicial = document.querySelector('.inicial')
 	const nameAndSurname = document.querySelector('.name-and-surname')
 
-	const ShowmodulMyProfil = profilMyprofil.addEventListener('click', (event) => {
-
-		let identifKey = String(userBaseData.name + userBaseData.password)
-		let userIndefData = JSON.parse(localStorage.getItem(identifKey))
-		inicial.innerHTML = userIndefData.name[0] + userIndefData.lastName[0]
-		nameAndSurname.innerHTML = userIndefData.name + ' ' + userIndefData.lastName
-
-
-		profilRegistr.classList.remove('profil-modal-active')
-		wrapper.classList.add('wrapper-inactive')
-		modalProfile.classList.toggle('modal-profil-box-active')
-		document.body.classList.add('body-hidden')
-
-		BookCounter.innerHTML = userBaseData.counterBook
-		profileFooterNumberCard.innerHTML = userBaseData.cardNumber
-		
+	profilMyprofil.addEventListener('click', (event) => {
+		showModulMyProfil()	
 	})
 
 
@@ -572,6 +587,9 @@ const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
 
 			cardBtn.classList.add('card-btn-inactive')
 			cardInfo.classList.add('card-info-active')
+
+			cardget.classList.add('card-get-inactive')
+			cardGetAuthorization.classList.add('card-get-authorization-active')
 		}
 	}
 	
@@ -629,3 +647,9 @@ formModalLibrary.addEventListener('submit', () =>{
 	document.body.classList.remove('body-hidden')
 })
 
+
+const btnProfileAuthorization = document.querySelector('.btn-profile-authorization')
+
+btnProfileAuthorization.addEventListener('click', () => {
+	showModulMyProfil()
+})
