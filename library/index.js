@@ -39,7 +39,6 @@ const showModulMyProfil = () => {
 
 // close modules when clicked outside of them
 window.addEventListener('click', (event) => {
-	console.log(event.target.parentNode.className)
 	if (event.target.parentNode.className != 'modal-register modal-register-active' 
 	&& event.target.parentNode.className != 'form-register'
 	&& event.target.parentNode.className != 'get-box'
@@ -87,19 +86,21 @@ const inputBox = document.querySelector('.input-box')
 const labelBox = document.querySelector('.label-box')
 
 inputBox.addEventListener('click', (event) => {
+
 	const arraySeason = event.target.parentNode.className
 
 		Array.from(labelBox.children).forEach(element => {
-			element.childNodes[1].classList.remove('books-box-opacity')
 		if (arraySeason !== 'favorites-moduls') {
-			element.classList.remove('open')}
+			element.classList.remove('open')
+		}
 		if (arraySeason.slice(6) === element.className.slice(6, 12)) {	
 			element.classList.add('open')
-		}
 			
+		}	
 	})
 })
 
+///highlighting seasons in bold
 document.querySelector('.input-winter').addEventListener('change', (event) =>{
 	document.querySelector('.text-label-winter').classList.add('book-bold')
 	document.querySelector('.text-label-spring').classList.remove('book-bold')
@@ -128,6 +129,8 @@ document.querySelector('.input-autumn').addEventListener('change', (event) =>{
 	document.querySelector('.text-label-summer').classList.remove('book-bold')
 }) 
 //======================//
+
+
 ////validator in card
 const preventDigits = (sender) => {
 	sender.value = sender.value.replace(/\d/g, "")
@@ -626,7 +629,7 @@ profileFooterCopy.addEventListener('click', () => {
 })
 /////
 
-////valodate form library 
+////validate form library 
 const formModalLibrary = document.querySelector('.form-modal-library')
 const btnModalLibrary = document.querySelector('.btn-modal-library')
 
@@ -668,3 +671,27 @@ const btnProfileAuthorization = document.querySelector('.btn-profile-authorizati
 btnProfileAuthorization.addEventListener('click', () => {
 	showModulMyProfil()
 })
+
+
+cardBtn.addEventListener('click', ()=> {
+	let cardNameFromBtn = cardName.value
+	let cardNumberFromBtn = cardNumber.value
+
+	for (let index = 0; index < localStorage.length; index++) {
+		let keyLocal = JSON.parse(localStorage.getItem(localStorage.key(index)))
+		if (keyLocal.name === cardNameFromBtn 
+			&& keyLocal.cardNumber === cardNumberFromBtn) {
+				cardBtn.classList.add('card-btn-inactive')
+				cardInfo.classList.add('card-info-active')
+
+				cardVisitCounter.innerHTML = keyLocal.vizites
+				cardBookCounter.innerHTML = keyLocal.counterBook
+				setTimeout(() => cardInfo.classList.remove('card-info-active'), 10000)
+				setTimeout(() => cardBtn.classList.remove('card-btn-inactive'), 10000)
+			}
+	}
+	
+})
+
+
+

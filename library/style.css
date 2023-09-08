@@ -616,6 +616,7 @@ text-transform: uppercase;
 
 .favorites-body {
 	padding: 20px;
+	position: relative;
 }
 
 .favorites-text {
@@ -630,11 +631,16 @@ text-transform: uppercase;
 }
 
 .input-box {
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 2;
 	display: flex;
 	justify-content: space-between;
 	max-width: 700px;
 	height: 24px;
 	margin-bottom: 40px;
+	background-color: #fff;
 }
 
 .custom-checkbox {
@@ -701,14 +707,32 @@ text-transform: uppercase;
 }
 
 .label-box {
+	
 }
 
 .modul {
 	display: none;
 }
 
+
 .open {
 	display: block;
+	animation: Modul-show 2s ease-in-out;
+}
+
+@keyframes Modul-show {
+  0% {
+    display: block;
+    opacity: 0;
+  }
+  50% {
+    display: block;
+    opacity: 0.8;
+  }
+  100% {
+    display: block;
+    opacity: 1;
+  }
 }
 
 .books-box {
