@@ -11,6 +11,140 @@
 	<link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter&display=swap" rel="stylesheet"> 
 </head>
 <body>
+	<div class="modal-register">
+		<div class="modal-header">
+			<h4 class="register-title">Register</h4>
+			<img src="./assets/svg/close_btn.svg" class="close-modal " alt="">
+		</div>
+		<form action="#" class="form-register">
+			<label for="form-register-name" class="label-register">First name</label>
+			<input type="text" id="form-register-name" class="input-register">
+			<label for="form-register-lastName" class="label-register">Last name</label>
+			<input type="text" id="form-register-lastName" class="input-register">
+			<label for="form-register-email" class="label-register">E-mail</label>
+			<input type="email" id="form-register-email" class="input-register">
+			<label for="form-register-password" class="label-register">Password</label>
+			<input type="password" id="form-register-password" class="input-register" pattern="(.{8,})"
+			title="Password must contain at least 8 characters" required>
+			<button class="form-btn">Sign up</button>
+		</form>
+		<div class="under-form">
+			<p class="text-under-form">Already have an account?</p>
+			<div class="under-form-link">	Login	</div>
+		</div>
+	</div>
+	<div class="modal-login">
+		<div class="modal-header">
+			<h4 class="register-title">Login</h4>
+			<img src="./assets/svg/close_btn.svg" class="close-login" alt="cross">
+		</div>
+		<form action="#" class="form-login">
+			<label for="form-login-name" class="label-login">E-mail or readers card</label>
+			<input type="text" id="form-login-name" class="input-login">
+			<label for="form-login-password" class="label-password-login">Password</label>
+			<input type="text" id="form-login-password" class="input-password-login">
+			<button class="form-btn-login">Log in</button>
+		</form>
+		<div class="under-form">
+			<p class="text-under-form">Don’t have an account?</p>
+			<div class="under-login-link">Register</div>
+		</div>
+	</div>
+	<div class="modal-profile">
+		<div class="modal-profil-box">
+			<div class="modal-profil-name">
+				<div class="inicial"></div>
+				<div class="name-and-surname"></div>
+			</div>
+			<div class="modal-profil-inform">
+				<div class="modal-profile-header">
+					<h3 class="modal-profile-title">My profile</h3>
+					<img src="./assets/svg/close_btn.svg" class="modal-profil-close" alt="cross">
+				</div>			
+				<div class="modal-profile-card">
+					<div class="modal-profil-visit-box">
+						<div class="title-visits">Visits</div>
+						<img src="./assets/svg/Union.svg" alt="">
+						<div class="visit-counter">1</div>
+					</div>
+					<div class="modal-profil-bonus-box">
+						<div class="title-bonus">Bonuses</div>
+						<img src="./assets/svg/Star 1.svg" alt="">
+						<div class="bonus-counter">23</div>
+					</div>
+					<div class="modal-profil-books-box">
+						<div class="title-book">Books</div>
+						<img src="./assets/svg/book.svg" alt="">
+						<div class="book-counter">0</div>
+					</div>
+				</div>
+				<div class="subtitle">Rented books</div>
+				<div class="profile-list-book">
+					<div class="profile-link-book"></div>
+				</div>
+				<div class="profile-footer-card">
+					<div class="profile-footer-text">Card number</div>
+					<div class="profile-footer-number-card">12345678</div>
+					<img src="./assets/svg/icon copy.svg" class="profile-footer-copy" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-library-card">
+		<div class="modal-library-header">
+			<h4 class="modal-library-title">Buy a library card</h4>
+			<svg xmlns="http://www.w3.org/2000/svg" class="modal-librarry-cross" width="19" height="19" viewBox="0 0 19 19" fill="none">
+				<path d="M2 16.8508L17 2.00012" stroke="white" stroke-width="3"/>
+				<path d="M2 2.14917L17 16.9999" stroke="white" stroke-width="3"/>
+			</svg>
+		</div>
+		<div class="modal-library-box">
+			<form action="" class="form-modal-library">
+				<label for="input-library-card" class="label-modal-library">Bank card number</label>
+				<input type="text" id="input-library-card" class="input-library-bankcard library-modal" min="16" maxlength="16"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+
+				<label for="input-library-code" class="label-modal-library">Expiration code</label>
+				<div class="library-code-box">
+					<input type="text" id="input-library-code" class="input-library-codeOne library-modal library-modal" 
+					min="2" maxlength="2"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+					<input type="text" id="" class="input-library-codeTwo library-modal"
+					min="2" maxlength="2"
+					oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+				</div>		
+				<label for="input-library-cvc" class="label-modal-library">CVC</label>
+				<input type="text" id="input-library-cvc" class="input-library-cvc library-modal"
+					min="3" maxlength="3"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+				<label for="input-library-cardcholder" class="label-modal-library">Cardholder name</label>
+				<input type="text" id="input-library-cardcholder" class="input-library-Cardholder library-modal"
+				min="2" maxlength="25"
+				oninput="this.value = this.value.replace(/[^A-z.' ']/g, '').replace(/(\..*)\./g, '$1');">
+				<label for="input-library-Postal" class="label-modal-library">Postal code</label>
+				<input type="text" id="input-library-Postal" class="input-library-Postal library-modal"
+				min="2" maxlength="50"
+				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+				<label for="input-library-City" class="label-modal-library">City / Town</label>
+				<input type="text" id="input-library-City" class="input-library-City library-modal"
+					min="2" maxlength="50"
+				oninput="this.value = this.value.replace(/[^A-z.]/g, '').replace(/(\..*)\./g, '$1');">
+
+				<div class="library-btn-box">
+					<button class="btn-modal-library" disabled>Buy</button>
+					<div class="modal-library-price">$ 25.00</div>
+				</div>
+
+			</form>
+			<div class="text-modal-library">
+				<p>If you are live, work, attend school, or pay property taxes 
+					in New York State, you can get a $25 digital library 
+					card right now using this online form. Visitors 
+					to New York State can also use this form to apply 
+					for a temporary card.</p>
+			</div>
+		</div>
+	</div>
 	<div class="wrapper">
 		<header class="header">
 			<div class="container">
@@ -36,10 +170,25 @@
 								</li>
 							</ul>
 						</nav>
-						<img src="./assets/svg/icon_profile.svg" class="img-profil" alt="icon profil">
+						<div class="img-profil">
+							<img src="./assets/svg/icon_profile.svg" class="img-pic" alt="icon profil">
+							<div class="user-avatar" id="user-avatar-title"></div>
+							<div class="profil-modal">
+								<h4 class="prifil-title">Profile</h4>
+								<div class="profil-line"></div>
+								<p class="profil-login profil-text">Log In</p>
+								<p class="profil-registr profil-text">Register</p>
+							</div>
+							<div class="profil-Myregistr">
+								<h4 class="profil-number-card prifil-title">Profile</h4>
+								<div class="profil-line"></div>
+								<p class="profil-myprofil profil-text">My profil</p>
+								<p class="profil-log-out profil-text">Log out</p>
+							</div>
+						</div>				
 						<div class="burger"></div>					
 				</div>
-			</div>
+				</div>
 			</div>
 		</header>
 		<main class="main">
@@ -66,35 +215,25 @@
 						<div class="about-slider">
 							<div class="slider-wrapper">
 								<div class="slide">
-									<img src="./assets/img/image1.png" class="slide-item" alt="slide">
-									<img src="./assets/img/image2.png" class="slide-item" alt="slide">
-									<img src="./assets/img/image3.png" class="slide-item" alt="slide">
-									<img src="./assets/img/image4.png" class="slide-item" alt="slide">
-									<img src="./assets/img/image5.png" class="slide-item" alt="slide">
-								</div>
-								<div  class="arrow-next">
-									<img src="./assets/svg/Carret_Right.svg" class="arrowRight" alt="arrow">								
-								</div>
-								<div class="arrow-prew">
-									<img src="./assets/svg/Carret_Right.svg" class="arrowLeft" alt="arrow">
+									<img src="./assets/img/image1.png" class="slide-item slide1" alt="slide">
+									<img src="./assets/img/image2.png" class="slide-item slide2" alt="slide">
+									<img src="./assets/img/image3.png" class="slide-item slide3" alt="slide">
+									<img src="./assets/img/image4.png" class="slide-item slide4" alt="slide">
+									<img src="./assets/img/image5.png" class="slide-item slide5" alt="slide">
 								</div>
 							</div>
+							<div  class="arrow-next">
+								<img src="./assets/svg/Carret_Right.svg" class="arrowRight" alt="arrow">								
+							</div>
+							<div class="arrow-prew">
+								<img src="./assets/svg/Carret_Right.svg" class="arrowLeft" alt="arrow">
+							</div>
 							<div class="slider-dots">
-								<div class="dots-box">
-									<div class="slider-dot1 dots"></div>
-								</div>
-								<div class="dots-box">
-									<div class="slider-dot2 dots"></div>
-								</div>
-								<div class="dots-box">
-									<div class="slider-dot3 dots"></div>
-								</div>
-								<div class="dots-box">
-									<div class="slider-dot3 dots"></div>
-								</div>
-								<div class="dots-box">
-									<div class="slider-dot3 dots"></div>
-								</div>
+								<div class="slider-dot1 dots dot-Active"></div>
+								<div class="slider-dot2 dots"></div>
+								<div class="slider-dot3 dots"></div>
+								<div class="slider-dot4 dots"></div>
+								<div class="slider-dot5 dots"></div>
 							</div>	
 						</div>
 					</div>
@@ -107,36 +246,36 @@
 						<div class="favorites-moduls">
 							<div class="input-box"> 
 								<div class="custom-checkbox">
-									<label for="input-winter">
+									<label for="input-winter" class="input-winter">
 										<input class="radio" type="radio" id="input-winter" name="season" checked>
 										<span class="pseudo-radio"></span>
-										<span class="winter-bold ">Winter</span>
+										<span class="text-label-winter book-bold">Winter</span>
 									</label>
 								</div>
 								<div class="custom-checkbox">
-									<label for="input-spring">
+									<label for="input-spring" class="input-spring">
 										<input class="radio" type="radio" id="input-spring" name="season">
 										<span class="pseudo-radio"></span>
-										<span>spring</span>
+										<span class="text-label-spring">spring</span>
 									</label>
 								</div>			
 								<div class="custom-checkbox">
-									<label for="input-summer">
+									<label for="input-summer" class="input-summer">
 										<input class="radio" type="radio" id="input-summer" name="season">
 										<span class="pseudo-radio"></span>
-										<span>summer</span>
+										<span class="text-label-summer">summer</span>
 									</label>
 								</div>	
 								<div class="custom-checkbox">	
-									<label for="input-autumn">
+									<label for="input-autumn" class="input-autumn">
 										<input class="radio"  type="radio" id="input-autumn" name="season">
 										<span class="pseudo-radio"></span>
-										<span>autumn</span>
+										<span class="text-label-autumn">autumn</span>
 									</label>
 								</div>
 							</div> 
 							<div class="label-box">
-								<div class="label-winter modul" id="label-winter">
+								<div class="label-winter modul open" id="label-winter">
 									<div class="books-box">
 										<div class="box-item">
 											<p class="above-title">Staff Picks</p>
@@ -192,7 +331,7 @@
 												how the Windsors have evolved and thrived as the modern world has changed around them.
 											</p>
 											<img src="./assets/img/winter/book.png" class="book-img" alt="book">
-											<button class="book-btn disabled" disabled>Own</button>
+											<button class="book-btn">Buy</button>
 										</div>
 									</div>
 								</div>
@@ -249,7 +388,7 @@
 												 For fans of Isabel Allende and Julia Alvarez.
 											</p>
 											<img src="./assets/img/spring/book-8.png" class="book-img"  alt="book">
-											<button class="book-btn disabled" disabled>Own</button>
+											<button class="book-btn">Buy</button>
 										</div>
 									</div>
 								</div>
@@ -493,7 +632,7 @@
 						<div class="card-box">
 							<div class="card-find">
 								<h3 class="find-title">Find your Library card</h3>
-									<form action="#" class="find-box">
+									<form action="" class="find-box">
 										<div class="find-box-frame">
 										<p class="card-subtitle">Brooklyn Public Library</p>
 										<label for="card-name" class="card-label">
@@ -504,6 +643,23 @@
 										</label>
 									</div>
 									<button class="card-btn">Check the card</button>
+									<div class="card-info">
+										<div class="modal-profil-visit-box">
+											<div class="title-visits" id="title-visits-small">Visits</div>
+											<img src="./assets/svg/Union.svg" alt="">
+											<div class="card-visit-counter">1</div>
+										</div>
+										<div class="modal-profil-bonus-box">
+											<div class="title-bonus" id="title-bonus-small">Bonuses</div>
+											<img src="./assets/svg/Star 1.svg" alt="">
+											<div class="card-bonus-counter">23</div>
+										</div>
+										<div class="modal-profil-books-box">
+											<div class="title-book" id="title-books-small">Books</div>
+											<img src="./assets/svg/book.svg" alt="">
+											<div class="card-book-counter">0</div>
+										</div>
+									</div>
 								</form>
 							</div>
 							<div class="card-get">
@@ -513,9 +669,19 @@
 									into account or you can register a new account
 								</p>
 								<div class="get-box">
-									<button class="get-btn">Sign Up</button>
-									<button class="get-btn">Log in</button>
+									<button class="get-sign-up get-btn">Sign Up</button>
+									<button class="get-login get-btn">Log in</button>
 								</div>
+							</div>
+							<div class="card-get-authorization">
+								<h4 class="get-title-authorization">Visit your profile</h4>
+								<p class="get-text-authorization">
+									With a digital library card you get free access 
+									to the Library’s wide array of digital resources 
+									including e-books, databases, educational resources, 
+									and more.
+								</p>
+								<button class="btn-profile-authorization">Profile</button>
 							</div>
 						</div>
 					</div>
