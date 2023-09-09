@@ -461,6 +461,9 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 
 		cardget.classList.add('card-get-inactive')
 		cardGetAuthorization.classList.add('card-get-authorization-active')
+
+
+
 	} else {
 		alert('password or logs are incorrect')
 	}
@@ -481,6 +484,7 @@ underFormLink.addEventListener('click', ()=> {
 const profilLogOut = document.querySelector('.profil-log-out')
 
 const exitProfile = profilLogOut.addEventListener('click', () => {
+
 	useAvatar.classList.remove('user-avatar-active')
 	imgPic.classList.remove('img-pic-inactive')
 	profilRegistr.classList.remove('profil-modal-active')
@@ -492,6 +496,18 @@ const exitProfile = profilLogOut.addEventListener('click', () => {
 
 	cardget.classList.remove('card-get-inactive')
 	cardGetAuthorization.classList.remove('card-get-authorization-active')
+
+	let linkBookRemove = document.querySelectorAll('.profile-list-book li')
+	linkBookRemove.forEach(element => {
+		element.remove()
+
+	const fromOwnInBuy = document.querySelectorAll('.book-btn')	
+	fromOwnInBuy.forEach(element => {
+		if (element.innerHTML === 'Own') {
+			element.innerHTML = 'Buy'
+		}
+	});
+	});
 })
 
 /// for btn Sign Up
@@ -510,6 +526,7 @@ const profileLinkBook = document.querySelector('.profile-link-book')
 const modalLibraryCard = document.querySelector('.modal-library-card')
 
 labelBox.addEventListener('click', (event) => {
+
 	if(useAvatar.className != 'user-avatar user-avatar-active') {
 		openLoginMenu()
 	}
@@ -536,7 +553,8 @@ labelBox.addEventListener('click', (event) => {
 		let titleBook = nameBook.slice(0, indexTitleBook - 1)
 		nameBook = nameBook.replace('<span>', '').replace('</span>')
 		let indexAftorBook = String(nameBook).indexOf('>', 0)
-		let aftorBook = nameBook.slice(indexAftorBook + 1).trim().replace('fined', '')	
+		console.log()
+		let aftorBook = nameBook.slice(indexAftorBook + 1).trim().replace('undefined', '').slice(3)
 		let titleAndAftorBook = titleBook + ',' + ' ' + aftorBook
 
 		profileLinkBook.insertAdjacentHTML('beforebegin', '<li>' + titleAndAftorBook + '</li>')
@@ -672,6 +690,11 @@ btnProfileAuthorization.addEventListener('click', () => {
 	showModulMyProfil()
 })
 
+///card check
+const titleVisits = document.querySelector('.title-visits')
+const titleBonus = document.querySelector('.title-bonus')
+const titlebook = document.querySelector('.title-book')
+
 
 cardBtn.addEventListener('click', ()=> {
 	let cardNameFromBtn = cardName.value
@@ -686,12 +709,14 @@ cardBtn.addEventListener('click', ()=> {
 
 				cardVisitCounter.innerHTML = keyLocal.vizites
 				cardBookCounter.innerHTML = keyLocal.counterBook
+
 				setTimeout(() => cardInfo.classList.remove('card-info-active'), 10000)
 				setTimeout(() => cardBtn.classList.remove('card-btn-inactive'), 10000)
 			}
 	}
 	
 })
+////
 
 
 

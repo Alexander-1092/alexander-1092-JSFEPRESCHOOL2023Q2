@@ -36,7 +36,7 @@
 	<div class="modal-login">
 		<div class="modal-header">
 			<h4 class="register-title">Login</h4>
-			<img src="./assets/svg/close_btn.svg" class="close-login" alt="">
+			<img src="./assets/svg/close_btn.svg" class="close-login" alt="cross">
 		</div>
 		<form action="#" class="form-login">
 			<label for="form-login-name" class="label-login">E-mail or readers card</label>
@@ -47,7 +47,7 @@
 		</form>
 		<div class="under-form">
 			<p class="text-under-form">Don’t have an account?</p>
-			<div class="under-login-link">Registr</div>
+			<div class="under-login-link">Register</div>
 		</div>
 	</div>
 	<div class="modal-profile">
@@ -100,7 +100,7 @@
 		</div>
 		<div class="modal-library-box">
 			<form action="" class="form-modal-library">
-				<label for="input-library-card" class="label-modal-library">Bank card numbe</label>
+				<label for="input-library-card" class="label-modal-library">Bank card number</label>
 				<input type="text" id="input-library-card" class="input-library-bankcard library-modal" min="16" maxlength="16"
 				oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 
@@ -645,17 +645,17 @@
 									<button class="card-btn">Check the card</button>
 									<div class="card-info">
 										<div class="modal-profil-visit-box">
-											<div class="title-visits">Visits</div>
+											<div class="title-visits" id="title-visits-small">Visits</div>
 											<img src="./assets/svg/Union.svg" alt="">
 											<div class="card-visit-counter">1</div>
 										</div>
 										<div class="modal-profil-bonus-box">
-											<div class="title-bonus">Bonuses</div>
+											<div class="title-bonus" id="title-bonus-small">Bonuses</div>
 											<img src="./assets/svg/Star 1.svg" alt="">
 											<div class="card-bonus-counter">23</div>
 										</div>
 										<div class="modal-profil-books-box">
-											<div class="title-book">Books</div>
+											<div class="title-book" id="title-books-small">Books</div>
 											<img src="./assets/svg/book.svg" alt="">
 											<div class="card-book-counter">0</div>
 										</div>

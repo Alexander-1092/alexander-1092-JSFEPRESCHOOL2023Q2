@@ -292,7 +292,7 @@ text-transform: uppercase;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	padding: 20px 25px;
+	padding: 21px 0px;
 	background-color: #ffffff;
 }
 
@@ -323,6 +323,9 @@ text-transform: uppercase;
 	cursor: pointer;
 }
 
+.close-modal:hover {
+	transform: scale(1.2);
+}
 
 .close-login {
 	position: absolute;
@@ -331,6 +334,10 @@ text-transform: uppercase;
 	width: 15px;
 	height: 15px;
 	cursor: pointer;
+}
+
+.close-login:hover {
+	transform: scale(1.2);
 }
 
 .form-register {
@@ -366,6 +373,8 @@ text-transform: uppercase;
 	width: 200px;
 	height: 20px;
 	border: 1px solid #BB945F; 
+	line-height: 20px; /* 133.333% */
+	letter-spacing: 0.3px;
 }
 
 .input-password-login {
@@ -382,9 +391,11 @@ text-transform: uppercase;
 	font-weight: 700;
 	background-color: #fff; 
 	border-radius: 2px;
+	letter-spacing: 1px;
 	border: 1px solid #0C0C0E; 
 	cursor: pointer;
 	transition: all 1s;
+
 }
 
 .form-btn:hover {
@@ -402,6 +413,10 @@ text-transform: uppercase;
 	border: 1px solid #0C0C0E; 
 	cursor: pointer;
 	transition: all 1s;
+	line-height: normal;
+	letter-spacing: 1px;
+	font-family: Inter;
+	color: #0C0C0E;
 }
 
 .form-btn-login:hover {
@@ -432,10 +447,11 @@ text-transform: uppercase;
 	line-height: normal;
 	letter-spacing: 1px;
 	cursor: pointer;
+	text-decoration-line: underline; 
 }
 
 .under-form-link:hover {
-	text-decoration-line: underline; 
+	text-decoration-line: none; 
 }
 
 .under-login-link {
@@ -446,10 +462,11 @@ text-transform: uppercase;
 	line-height: normal;
 	letter-spacing: 1px;
 	cursor: pointer;
+	text-decoration-line: underline; 
 }
 
 .under-login-link:hover {
-	text-decoration-line: underline; 
+	text-decoration-line: none; 
 }
 
 .welcome {
@@ -1044,7 +1061,7 @@ text-transform: uppercase;
 	justify-content: space-between;
 }
 
-@media (max-width:1024px) {
+@media (max-width:1100px) {
 	.card-box {
 		flex-wrap: wrap;
 		justify-content: center;
@@ -1096,6 +1113,7 @@ text-transform: uppercase;
 
 .card-input {
 	width: 520px;
+	height: 66px;
 	display: block;
 	border-radius: 10px; 
 	color: #8E8E8E;
@@ -1107,6 +1125,10 @@ text-transform: uppercase;
 	letter-spacing: 0.6px; 
 	margin-top: 25px;
 	padding: 8px 25px;
+}
+
+#card-name {
+	margin-top: 20px;
 }
 
 .card-btn {
@@ -1207,7 +1229,9 @@ text-transform: uppercase;
 	flex-direction: column;
 	gap: 35px;
 	align-items: flex-end;
+	flex-wrap: wrap;
 }
+
 
 .card-get-authorization-active {
 	display: flex;
@@ -1368,10 +1392,9 @@ text-transform: uppercase;
 
 
 .modal-profile {
-	width: 600px;
 	position: absolute;
 	z-index: 2;
-	background-color: #fff;
+	
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -1379,6 +1402,9 @@ text-transform: uppercase;
 }
 .modal-profil-box {
 	display: none;
+	width: 600px;
+	height: 400px;
+	background-color: #fff;
 }
 
 .modal-profil-box-active {
@@ -1388,8 +1414,9 @@ text-transform: uppercase;
 
 .modal-profil-name {
 	width: 170px;
+	height: 400px;
 	background-color: #0C0C0E;
-	padding: 149px 25px;
+	padding: 139px 25px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -1459,6 +1486,14 @@ text-transform: uppercase;
 	gap: 10px;
 }
 .title-visits {
+	color: #000;
+	text-align: center;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 100% */
+	letter-spacing: 0.4px;
 }
 .visit-counter {
 }
@@ -1470,6 +1505,14 @@ text-transform: uppercase;
 	gap: 10px;
 }
 .title-bonus {
+	color: #000;
+	text-align: center;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 100% */
+	letter-spacing: 0.4px;
 }
 .bonus-counter {
 }
@@ -1482,6 +1525,14 @@ text-transform: uppercase;
 	gap: 10px;
 }
 .title-book {
+	color: #000;
+	text-align: center;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 100% */
+	letter-spacing: 0.4px;
 }
 .book-counter {
 }
@@ -1495,9 +1546,9 @@ text-transform: uppercase;
 }
 .profile-list-book {
 	list-style-type: disc;
+	margin-left: 10px;
 
-	margin-bottom: 40px;
-	height: 80px;
+	height: 60px;
 	width: 350px;
 	font-size: 20px;
 	letter-spacing: 2px;
@@ -1505,10 +1556,26 @@ text-transform: uppercase;
 	overflow-x: hidden; 
 }
 
+.profile-list-book li {
+
+	margin-bottom: 6px;
+	color: #000;
+	font-family: Inter;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 100% */
+	letter-spacing: 2px;
+	text-transform: capitalize;
+}
+
 
 .profile-footer-card {
 	display: flex;
 	gap: 15px;
+
+	margin-bottom: 40px;
+	margin-top: 40px;
 }
 .profile-footer-text {
 
@@ -1593,6 +1660,13 @@ text-transform: uppercase;
 .form-modal-library {
 	width: 200px;
 	
+	color: #000;
+	font-family: Inter;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px; /* 133.333% */
+	letter-spacing: 0.3px;
 }
 .label-modal-library {
 	text-align: center;
@@ -1609,6 +1683,32 @@ text-transform: uppercase;
 	margin-top: 10px;
 	margin-bottom: 10px;
 	border: 1px solid #BB945F;
+}
+
+#input-library-card {
+	height: 20px;
+}
+
+.input-library-code {
+	height: 20px;
+}
+
+
+#input-library-cvc {
+	margin-bottom: 22px;
+	height: 20px;
+}
+
+#input-library-cardcholder {
+	height: 20px;
+}
+
+#input-library-Postal {
+	height: 20px;
+}
+
+#input-library-City {
+	height: 20px;
 }
 
 .input-library-bankcard {
@@ -1687,6 +1787,10 @@ text-transform: uppercase;
 	letter-spacing: 2px;
 }
 
+.text-modal-library p {
+	width: 330px;
+}
+
 .card-info {
 	display: none;
 	gap: 35px;
@@ -1709,4 +1813,14 @@ text-transform: uppercase;
 .card-info .modal-profil-books-box{
 	height: 63px;
 	gap: 2px;
+}
+
+#title-visits-small {
+	font-size: 10px;
+}
+#title-bonus-small {
+	font-size: 10px;
+}
+#title-books-small {
+	font-size: 10px;
 }
