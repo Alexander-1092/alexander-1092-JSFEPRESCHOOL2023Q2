@@ -425,7 +425,7 @@ const cardNumber = document.getElementById('card-num')
 
 
 const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
-	userBaseData.name = document.getElementById('form-login-name').value
+	userBaseData.email = document.getElementById('form-login-name').value
 	userBaseData.password = document.getElementById('form-login-password').value
 
 	let = dataForUserBaseData = JSON.parse(localStorage.getItem(userBaseData.email + userBaseData.password))	
@@ -437,6 +437,7 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.btnModullibrary  = dataForUserBaseData.btnModullibrary
 	userBaseData.vizites = userBaseData.vizites + 1
 	userBaseData.counterBook = 0
+	userBaseData.name = dataForUserBaseData.name
 
 	localStorage.setItem(identifKey, JSON.stringify(userBaseData))
 	if (localStorage.getItem(identifKey)) {
