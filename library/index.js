@@ -21,7 +21,7 @@ const openLoginMenu = () => {
 }
 
 const showModulMyProfil = () => {
-	let identifKey = String(userBaseData.name + userBaseData.password)
+	let identifKey = String(userBaseData.email + userBaseData.password)
 	let userIndefData = JSON.parse(localStorage.getItem(identifKey))
 	inicial.innerHTML = userIndefData.name[0] + userIndefData.lastName[0]
 	nameAndSurname.innerHTML = userIndefData.name + ' ' + userIndefData.lastName
@@ -373,7 +373,7 @@ btnForm.addEventListener('submit', () => {
 	userBaseData.counterBook = 0
 	userBaseData.btnModullibrary = 0
 
-	let userIdentif = userBaseData.name + userBaseData.password
+	let userIdentif = userBaseData.email + userBaseData.password
 
 	localStorage.setItem(userIdentif, JSON.stringify(userBaseData))
 	modalRegister.classList.remove('modal-register-active')
@@ -428,8 +428,8 @@ const indetifLoginAndPassword = formLogin.addEventListener('submit', () => {
 	userBaseData.name = document.getElementById('form-login-name').value
 	userBaseData.password = document.getElementById('form-login-password').value
 
-	let = dataForUserBaseData = JSON.parse(localStorage.getItem(userBaseData.name + userBaseData.password))	
-	let identifKey = String(userBaseData.name + userBaseData.password)
+	let = dataForUserBaseData = JSON.parse(localStorage.getItem(userBaseData.email + userBaseData.password))	
+	let identifKey = String(userBaseData.email + userBaseData.password)
 	userBaseData.cardNumber = dataForUserBaseData.cardNumber
 	userBaseData.email = dataForUserBaseData.email
 	userBaseData.lastName = dataForUserBaseData.lastName
@@ -540,7 +540,7 @@ labelBox.addEventListener('click', (event) => {
 			userBaseData.counterBook = userBaseData.counterBook - 1
 			event.target.innerHTML = 'Buy'
 			
-			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+			localStorage.setItem(userBaseData.email + userBaseData.password, JSON.stringify(userBaseData))
 			cardBookCounter.innerHTML = userBaseData.counterBook
 		} else if (event.target.className !== 'box-item'
 		&& event.target.className !== 'book-title'
@@ -562,7 +562,7 @@ labelBox.addEventListener('click', (event) => {
 		userBaseData.counterBook = userBaseData.counterBook + 1
 		event.target.innerHTML = 'Own'
 		
-		localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+		localStorage.setItem(userBaseData.email + userBaseData.password, JSON.stringify(userBaseData))
 		cardBookCounter.innerHTML = userBaseData.counterBook
 		
 		if (userBaseData.btnModullibrary === 0) {
@@ -672,7 +672,7 @@ formModalLibrary.addEventListener('change', ()=> {
 			btnModalLibrary.classList.add('btn-modal-library-active')
 
 			userBaseData.btnModullibrary = 1
-			localStorage.setItem(userBaseData.name + userBaseData.password, JSON.stringify(userBaseData))
+			localStorage.setItem(userBaseData.email + userBaseData.password, JSON.stringify(userBaseData))
 			
 		}
 })
@@ -726,3 +726,4 @@ console.log(
 	'Итого: 200 - 8.5(за отсутствие затухание) баллов = 191.5'
 	
 )
+
