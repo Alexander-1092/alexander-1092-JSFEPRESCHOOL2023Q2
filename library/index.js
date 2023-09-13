@@ -345,7 +345,6 @@ ModulloginUnderLink.addEventListener('click', () => {
 })
 
 
-
 /// open modul register
 const btnForm = document.querySelector('.form-register')
 const cardBtn = document.querySelector('.card-btn ') 
@@ -355,7 +354,8 @@ const cardInfo = document.querySelector('.card-info')
 const cardget = document.querySelector('.card-get')
 const cardGetAuthorization = document.querySelector('.card-get-authorization')
 
-let CardNumber = Math.random().toFixed(9) * 10**9
+let CardNumber = parseInt(Math.random().toFixed(9) * 10**9, 16).toString().slice(0,9)
+
 
 const cardVisitCounter = document.querySelector('.card-visit-counter')
 const cardBonusCounter = document.querySelector('.card-bonus-counter')
