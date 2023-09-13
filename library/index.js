@@ -637,7 +637,7 @@ const modalLibrarryCross = document.querySelector('.modal-librarry-cross')
 		visitsCounter.innerHTML = userBaseData.vizites
 		BookCounter.innerHTML = userBaseData.counterBook
 	})
-	resetAcc()
+	// resetAcc()
 	/////////////
 
 //// copy number card
