@@ -5,6 +5,7 @@ const picStop = document.querySelector('.pic-stop')
 const picNext = document.querySelector('.pic-btn-next')
 const picPrev = document.querySelector('.pic-btn-prev')
 const boxBtn = document.querySelector('.box-btn')
+const covers = document.querySelector('.covers')
 
 
 let playNum = 0
@@ -17,6 +18,13 @@ const listSongs = [
 	'./assets/media/Little Richard - Tutti-Frutti.mp3'
 ]
 
+const coversForSongs = [
+	'./assets/img/Kobein.png',
+	'./assets/img/Elvis.jpg',
+	'./assets/img/Goombay_Dance_Band_Seven_Tears_single_cover.jpg',
+	'./assets/img/sinatra.jpg',
+	'./assets/img/little.jpg'
+]
 
 ////btn plae and stop
 isPlay = false
@@ -27,6 +35,7 @@ function playAudio() {
 		console.log(audio.duration)
 		audio.currentTime = 0;
 		listenListSong()
+		showCoverSong()
 		ShowPicBtn()
   	audio.play();
 		isPlay = true
@@ -84,5 +93,8 @@ pauseBtn.addEventListener('click', () => {pauseAudio()});
 
 function listenListSong() {
 	audio.setAttribute('src', listSongs[playNum])
+}
 
+function showCoverSong() {
+	covers.setAttribute('src', coversForSongs[playNum])
 }
