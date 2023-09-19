@@ -1,0 +1,75 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+
+}
+
+.pic-wraper {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.wraper {
+
+
+}
+.player {
+	position: absolute;
+	width: 400px;
+	height: auto;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.container {
+}
+.pic-box {
+}
+.nav {
+}
+.music-box {
+}
+
+
+.box-btn {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.btn-player {
+	width: 80px;
+	height: auto;
+}
+
+.btn-player img {
+	width: 100%;
+}
+
+.prev-btn {
+	transform: rotate(180deg);
+}
+
+.pic-stop {
+	display: none;
+}
+
+.pic-player-active {
+	display: block;
+}
+
+.pic-player-inactive {
+	display: none;
+}
+
+
+
+
+
+
