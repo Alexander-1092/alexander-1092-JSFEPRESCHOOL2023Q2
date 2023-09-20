@@ -5,7 +5,6 @@
 }
 
 body {
-
 }
 
 .pic-wraper {
@@ -17,23 +16,27 @@ body {
 
 .wraper {
 
-
 }
+
 .player {
 	position: absolute;
-	width: 400px;
+	max-width: 900px;
 	height: auto;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+
 }
 .container {
 }
 .pic-box {
+
+	height: 600px;
 }
 
 .pic-box img {
 	width: 100%;
+	height: 100%;
 	object-fit: contain;
 }
 
@@ -42,11 +45,11 @@ body {
 .music-box {
 }
 
-
 .box-btn {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background-color: #fff;
 }
 
 .btn-player {
@@ -74,8 +77,30 @@ body {
 	display: none;
 }
 
+.track-control {
+	width: 100%;
+}
 
+.track-progress {
+	width: 100%;
+	height: 35px;
+	background-color: #c41f27;
+	appearance: none;
+}
 
+input[type=range]::-webkit-slider-thumb {
+	background: #ecf0f1;
+	cursor: pointer;
+	width:38px;
+	height: 38px;
+	-webkit-appearance: none;
+	margin-top: -4px;
+}
 
-
-
+.sing-info-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #fff;
+	padding: 10px 8px;
+}

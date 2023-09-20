@@ -6,6 +6,11 @@ const picNext = document.querySelector('.pic-btn-next')
 const picPrev = document.querySelector('.pic-btn-prev')
 const boxBtn = document.querySelector('.box-btn')
 const covers = document.querySelector('.covers')
+const trackProgress = document.querySelector('.track-progress')
+const timeCounter = document.querySelector('.time-Couneter')
+const nameSing = document.querySelector('.name-sing')
+const totalTime = document.querySelector('.total-time')
+
 
 
 let playNum = 0
@@ -26,20 +31,31 @@ const coversForSongs = [
 	'./assets/img/little.jpg'
 ]
 
+const nameSingsList = [
+	'<div class="name-sing">Nirvana - Smells Like Teen Spirit</div>',
+	'<div class="name-sing">Elvis Presley — JAILHOUSE ROCK</div>',
+	'<div class="name-sing">Goombay-Dance-Band_-_Seven-Tears</div>',
+	'<div class="name-sing">Frank_Sinatra_-_Strangers_in_the_Night</div>',
+	'<div class="name-sing">Little Richard - Tutti-Frutti</div>'
+]
+
+
+
 ////btn plae and stop
 isPlay = false
 
 function playAudio() {
-
+	setInterval(() => showCounerTime(), 1000);
 	if (isPlay === false) {
-		console.log(audio.duration)
-		audio.currentTime = 0;
+		// audio.currentTime = 0;
+		scrool()
 		listenListSong()
 		showCoverSong()
-		ShowPicBtn()
+		showNameSing()
+		ShowPicBtn()	
   	audio.play();
 		isPlay = true
-	} else {	
+	} else {
 		pauseAudio()
 		ShowPicBtnStop()
 		isPlay = false
@@ -47,10 +63,11 @@ function playAudio() {
 }
 
 
+
+
 function pauseAudio() {
   audio.pause();
 }
-
 
 function ShowPicBtn() {
 	picPlay.classList.add('pic-player-inactive')
@@ -89,7 +106,10 @@ picPrev.addEventListener('click', () => {
 
 playBtn.addEventListener('click', () => {playAudio()});
 
-pauseBtn.addEventListener('click', () => {pauseAudio()});
+picStop.addEventListener('click', () => {
+	pauseAudio()
+});
+
 
 function listenListSong() {
 	audio.setAttribute('src', listSongs[playNum])
@@ -98,3 +118,29 @@ function listenListSong() {
 function showCoverSong() {
 	covers.setAttribute('src', coversForSongs[playNum])
 }
+
+function songProgress() {
+	console.log(audio.duration)
+	trackProgress.setAttribute('max', audio.duration)
+	trackProgress.setAttribute('value', audio.currentTime)
+}
+
+
+const showCounerTime = ()=> timeCounter.innerHTML = `<div class="total-time">${Math.floor(audio.currentTime)}</div>`
+
+function scrool() {
+	totalTime.innerHTML = `<div class="time-Couneter">0${Math.floor(audio.duration)
+		.toString().slice(0,1)}:${Math.floor(audio.duration).toString().slice(1)}</div>`
+	
+	timerId = setInterval(() => songProgress(), 1000);
+	// setTimeout(() => { clearInterval(timerId); console.log('stop'); }, audio.duration * 100);
+}
+
+
+function showNameSing() {
+	nameSing.innerHTML = nameSingsList[playNum]
+}
+
+trackProgress.addEventListener('change', (event)=> {
+	audio.currentTime = trackProgress.value
+})
