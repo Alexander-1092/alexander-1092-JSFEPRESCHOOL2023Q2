@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Audio-player</title>
+	<link rel="stylesheet" href="./style.css">
+	<script defer src="./index.js"></script>
+</head>
+<body>
+	<img src="./assets/img/wrapper.jpg" class="pic-wraper" alt="">
+	<div class="wraper">
+		<div class="player">
+			<div class="container">
+				<div class="pic-box">
+					<img src="./assets/img/Kobein.png" class="covers" alt="cover">
+				</div>
+				<div class="nav">
+					<div class="track-control">
+						<input type="range" min="1" max="100" value="0" class="track-progress" id="myRange">
+					</div>
+					<div class="music-box">
+						<audio class="song" src="./assets/media/Nirvana_-_Smells_Like_Teen_Spirit_47829249.mp3"></audio>
+						<div class="box-btn">
+							<button class="prev-btn btn-player">
+								<img src="./assets/img/next.png" class="pic-btn-prev" alt="">
+							</button>
+							<button class="play-btn btn-player">
+								<img src="./assets/img/arrow-play.png" class="pic-play" alt="">
+								<img src="./assets/img/pause-btn.png" class="pic-stop" alt="">
+							</button>
+							<button class="next-btn btn-player">
+								<img src="./assets/img/next.png" class="pic-btn-next" alt="">
+							</button>
+						</div>
+						<div class="sing-Info">
+							<div class="sing-info-box">
+								<div class="time-Couneter">00:00</div>
+								<div class="name-sing">Nirvana - Smells Like Teen Spirit</div>
+								<div class="total-time">05:01</div>
+							</div>
+						</div>					
+					</div>					
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="footer-box">
+				<a href="https://github.com/Alexander-1092" class="link-git" target="_blank">Alex</a>
+				<a href="https://rs.school/js-stage0/" class="link-cours" target="_blank">JavaScript/Front-end</a>
+				<img src="./assets/svg/rs_school_js.svg" class="logo" alt="logo">
+			</div>
+		</footer>
+	</div>
+</body>
+</html>
