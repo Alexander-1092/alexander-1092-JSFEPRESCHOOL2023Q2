@@ -41,13 +41,13 @@ let timePause = 0
 
 ////base parameter
 function playAudio() {
-	setInterval(() => showCounerTime(), 1000);
+	setInterval(() => showCounterTime(), 1000);
 	if (isPlay === false) {
 		scrool()
 		listenListSong()
 		showCoverSong()
 		showNameSing()
-		ShowPicBtn()	
+		ShowPicBtn()
   	audio.play();
 		audio.currentTime = timePause
 		isPlay = true
@@ -87,7 +87,7 @@ function prevSong() {
 
 picNext.addEventListener('click', () => {
 	nextSong(); 
-	if (isPlay === true) {isPlay = false; timePause = 0; playAudio(); 
+	if (isPlay === true) {isPlay = false; timePause = 0; playAudio();
 	} else {isPlay = false; ShowPicBtn(); timePause = 0;	playAudio();
 	}
 })
@@ -120,21 +120,18 @@ function songProgress() {
 		ShowPicBtnStop()
 		isPlay = false
 	}
-	showCounerTime()
+	showCounterTime()
 	showTotalTime()
 	trackProgress.setAttribute('max', audio.duration)
-	trackProgress.setAttribute('value', audio.currentTime)
-
+	trackProgress.value = audio.currentTime
 }
 
-trackProgress.addEventListener('change', ()=> {
+trackProgress.addEventListener('change', () => {
 	audio.currentTime = trackProgress.value
 })
 
 
-
-
-const showCounerTime = () => {
+const showCounterTime = () => {
 	let timeNow = Math.floor(audio.currentTime)
 	let sec = 0
 	let min = 0
