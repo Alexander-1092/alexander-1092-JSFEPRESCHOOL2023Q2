@@ -62,6 +62,7 @@ picClose.addEventListener('click', (e) => {
 
 function showAlert() {
 	pseudoAlert.classList.add('pseudo-alert-active')
+	container.classList.add('wrapper-inactive')
 }
 
 searchClose.addEventListener('click', () => {
@@ -77,4 +78,10 @@ document.addEventListener('keydown', (event) => {
 
 alertBtn.addEventListener('click', () => {
 	pseudoAlert.classList.remove('pseudo-alert-active')
+	container.classList.remove('wrapper-inactive')
 })
+
+
+window.addEventListener('load', () => {
+	GetPic()
+});
