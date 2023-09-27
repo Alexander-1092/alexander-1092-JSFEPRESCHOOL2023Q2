@@ -5,6 +5,9 @@ const mainPic = document.querySelector('.main-pic')
 const showPic = document.querySelector('.show-pic')
 const container = document.querySelector('.wrapper')
 const picClose = document.querySelector('.pic-close')
+const pseudoAlert = document.querySelector('.pseudo-alert')
+const searchClose = document.querySelector('.search-close')
+const alertBtn = document.querySelector('.alert-btn')
 
 
 let searchWord = 'winter'
@@ -14,13 +17,16 @@ async function GetPic() {
 	try {
 		const response = await fetch(url)
 		const data = await response.json()
-		console.log(data)
-		for (let index = 0; index < 10; index++) {
-			let link = String(data.results[index].urls.regular)
-			document.querySelectorAll('.pic')[index].src = link	
+		if (data.total == 0 && input.value.length > 0) {
+			showAlert()
+		} else {
+			for (let index = 0; index < 10; index++) {
+				let link = String(data.results[index].urls.regular)
+				document.querySelectorAll('.pic')[index].src = link	
+			}
 		}
 	} catch (error) {
-		console.log(error)
+		console.log(error)		
 	}
 }
 
@@ -52,4 +58,23 @@ picClose.addEventListener('click', (e) => {
 	mainPic.classList.remove('main-pic-active')
 	picClose.classList.remove('pic-close-active')
 	mainPic.src = ''
+})
+
+function showAlert() {
+	pseudoAlert.classList.add('pseudo-alert-active')
+}
+
+searchClose.addEventListener('click', () => {
+	input.value = ''
+})
+
+document.addEventListener('keydown', (event) => {
+	if (event.key == 'Enter'){
+		searchWord = input.value
+		GetPic()
+	}
+})
+
+alertBtn.addEventListener('click', () => {
+	pseudoAlert.classList.remove('pseudo-alert-active')
 })

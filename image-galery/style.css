@@ -17,8 +17,57 @@ a:hover {
 
 body {
 	background-color: rgb(58, 196, 196);
-
 }
+
+.pseudo-alert {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 500px;
+	display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #e6e6e6c0;
+	border-radius: 5px;
+	padding: 10px 20px;
+}
+
+.pseudo-alert-active {
+	display: flex;
+}
+
+.alert-box {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 15px;
+}
+
+.alert-box p {
+	font-size: 14px;
+}
+
+
+.smail {
+	width: 70px;
+	height: 70px;
+}
+
+.alert-btn {
+	padding: 8px 30px;
+	background-color: #3e92b9;
+	cursor: pointer;
+	border: none;
+}
+
+.alert-btn:hover {
+	background-color: #254b5c;
+}
+ .alert-btn:active {
+	background-color: #3e92b9;
+ }
 
 
 .wrapper {
@@ -30,6 +79,7 @@ body {
 
 .wrapper-inactive {
 	position: relative;
+	pointer-events: none;
 	z-index: 1;
 	opacity: 0.3;
 }
@@ -63,12 +113,20 @@ body {
 
 .pic-search {
 	position: absolute;
-	top: 5px;
-	right: 10px;
-	height: 40px;
+	top: 11px;
+	right: 13px;
+	height: 30px;
 	cursor: pointer;
 }
 
+
+.search-close {
+	position: absolute;
+	top: 11px;
+	right: 53px;
+	height: 30px;
+	cursor: pointer;
+}
 
 .main {
 	width: 100%;
