@@ -112,6 +112,13 @@ body {
 	font-size: 18px;
 }
 
+@media (max-width: 540px) {
+	.search {
+		width: 200px;
+		
+	}
+}
+
 .pic-search {
 	position: absolute;
 	top: 11px;
@@ -138,6 +145,20 @@ body {
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 10px;
 }
+
+@media (max-width: 768px) {
+	.pic-box  {
+		grid-template-columns: 1fr 1fr;
+	}
+	
+}
+
+@media (max-width: 540px) {
+	.pic-box  {
+		grid-template-columns: 1fr;
+	}
+}
+
 
 
 .pic {

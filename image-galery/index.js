@@ -26,7 +26,8 @@ async function GetPic() {
 			}
 		}
 	} catch (error) {
-		console.log(error)		
+		console.log(error)
+		showAlert()
 	}
 }
 
