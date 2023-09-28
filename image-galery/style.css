@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Moli;
+	src: url(./assets/fonts/Mooli-Regular.ttf);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -17,6 +22,7 @@ a:hover {
 
 body {
 	background-color: rgb(58, 196, 196);
+	font-family: Moli;
 }
 
 .pseudo-alert {
@@ -87,7 +93,6 @@ body {
 
 .header {
 	width: 100%;
-	
 }
 .container {
 	max-width: 1280px;

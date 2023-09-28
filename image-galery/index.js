@@ -11,16 +11,20 @@ const alertBtn = document.querySelector('.alert-btn')
 
 
 let searchWord = 'winter'
+input.focus()
+
 
 async function GetPic() {
-	const url = `https://api.unsplash.com/search/photos?query=${searchWord}&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`
+	const url = `https://api.unsplash.com/search/photos?query=${searchWord}&per_page=15&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`
 	try {
 		const response = await fetch(url)
 		const data = await response.json()
+		console.log(data)
 		if (data.total == 0 && input.value.length > 0) {
 			showAlert()
 		} else {
-			for (let index = 0; index < 10; index++) {
+			for (let index = 0; index < 15; index++) {
+				
 				let link = String(data.results[index].urls.regular)
 				document.querySelectorAll('.pic')[index].src = link	
 			}
@@ -37,7 +41,7 @@ btn.addEventListener('click', ()=> {
 })
 
 
-for (let index = 0; index < 10; index++) {
+for (let index = 0; index < 15; index++) {
 	let photo = document.createElement('a')
 	photo.innerHTML = `<img src="" alt="logo" class="pic">`
 	picBox.appendChild(photo)
