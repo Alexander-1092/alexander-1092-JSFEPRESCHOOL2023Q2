@@ -42,19 +42,18 @@ btn.addEventListener('click', ()=> {
 
 for (let index = 0; index < 15; index++) {
 	let photo = document.createElement('a')
-	photo.innerHTML = `<img src="" alt="logo" class="pic">`
+	photo.innerHTML = `<img src="" alt="pic" class="pic">`
 	picBox.appendChild(photo)
 }
 
 
 picBox.addEventListener('click', (event) => {
+	mainPic.src = event.target.src
 	container.classList.add('wrapper-inactive')
 	showPic.classList.add('show-pic-active')
 	mainPic.classList.add('main-pic-active')
 	picClose.classList.add('pic-close-active')
-	mainPic.src = event.target.src
 })
-
 
 picClose.addEventListener('click', (e) => {
 	container.classList.remove('wrapper-inactive')

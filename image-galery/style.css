@@ -26,7 +26,7 @@ a:hover {
 
 
 body {
-	background-color: rgb(58, 196, 196);
+	background: linear-gradient(45deg, #9890e3, #b1f4cf); 
 	font-family: Moli;
 }
 
