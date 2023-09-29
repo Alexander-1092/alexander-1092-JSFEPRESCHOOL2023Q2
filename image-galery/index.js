@@ -15,7 +15,7 @@ input.focus()
 
 
 async function GetPic() {
-	const url = `https://api.unsplash.com/search/photos?query=${searchWord}&per_page=15&client_id=SouHY7Uul-OxoMl3LL3c0NkxUtjIrKwf3tsGk1JaiVo`
+	const url = `https://api.unsplash.com/search/photos?query=${searchWord}&per_page=15&client_id=72YsZodqxI066gf9KEkK1SvHu0octTY8emwT7WdnrCo`
 	try {
 		const response = await fetch(url)
 		const data = await response.json()
@@ -31,7 +31,6 @@ async function GetPic() {
 		}
 	} catch (error) {
 		console.log(error)
-		showAlert()
 	}
 }
 

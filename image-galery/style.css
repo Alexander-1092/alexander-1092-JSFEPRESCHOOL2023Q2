@@ -17,8 +17,13 @@ a {
 	font-size: 24px;
 }
 a:hover {
-	color: rgb(7, 31, 66);
+	color: rgb(6, 21, 44);
 }
+
+::placeholder {
+	font-family: Moli;
+}
+
 
 body {
 	background-color: rgb(58, 196, 196);
@@ -240,4 +245,8 @@ body {
 
 .logo{
 	max-width: 100px;
+}
+
+.footer-box a:hover {
+	transform: scale(1.2);
 }
