@@ -1,0 +1,75 @@
+body {
+	background: url(./assets/img/warrper.jpg) 0 0/cover no-repeat;
+}
+
+a {
+	text-decoration: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+.header {
+}
+.container {
+	margin: 0 auto;
+	max-width: 1024px;
+	padding: 10px;
+}
+.menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.btn-new-game {
+}
+.btn-score {
+}
+.main {
+	flex-grow: 1;
+	display: grid;
+	align-items: center;
+	
+}
+.box-card {
+	display: grid;
+	gap: 15px;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	flex-wrap: wrap;
+}
+.card {
+	background-color: #fff;
+	object-fit: contain;
+	width: 100px;
+	height: auto;
+	
+}
+.footer {
+	flex-shrink: 0;
+
+}
+
+.footer-box {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+.git {
+	color: #ffffff;
+}
+
+.git:hover {
+	color: #8b8383;
+}
+
+.logo {
+	width: 100px;
+}
+
+.logo:hover {
+	opacity: 0.8;
+}
