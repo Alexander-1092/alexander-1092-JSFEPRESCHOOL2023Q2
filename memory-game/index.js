@@ -14,6 +14,8 @@ const listOpenCard = [
 //
 
 const cardOpen = document.querySelectorAll('.card-open')
+const card = document.querySelectorAll('.card')
+const boxCard = document.querySelector('.box-card')
 const randomNumOne = []
 const randomNumTwo = []
 
@@ -44,4 +46,27 @@ const distributeCards = () => {
 
 distributeCards()
 //
+
+let counter = 0
+let OpenCardOne = ''
+let cardOne = ''
+
+
+boxCard.addEventListener('click', (event) => {
+	event.target.classList.add('card-open-show')
+	console.log(event.target)
+	if (event.target.className !== 'card-open card-open-show'){
+		if (counter % 2 !== 0) {
+			if (event.target.nextElementSibling.src === OpenCardOne.src){
+			} else {
+				cardOne.classList.remove('card-open-show')
+				event.target.classList.remove('card-open-show')
+			}
+		} 
+		cardOne = event.target
+		OpenCardOne = event.target.nextElementSibling
+		counter++
+	}
+})
+
 
