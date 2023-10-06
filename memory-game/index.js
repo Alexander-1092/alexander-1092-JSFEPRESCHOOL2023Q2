@@ -54,13 +54,11 @@ let cardOne = ''
 
 boxCard.addEventListener('click', (event) => {
 	event.target.classList.add('card-open-show')
-	console.log(event.target)
 	if (event.target.className !== 'card-open card-open-show'){
 		if (counter % 2 !== 0) {
 			if (event.target.nextElementSibling.src === OpenCardOne.src){
 			} else {
-				cardOne.classList.remove('card-open-show')
-				event.target.classList.remove('card-open-show')
+				setTimeout(removeCard, 1000, cardOne, event)
 			}
 		} 
 		cardOne = event.target
@@ -70,3 +68,7 @@ boxCard.addEventListener('click', (event) => {
 })
 
 
+function removeCard (cardOne, event) {
+	cardOne.classList.remove('card-open-show')
+	event.target.classList.remove('card-open-show')
+}
