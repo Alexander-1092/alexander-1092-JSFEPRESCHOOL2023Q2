@@ -17,6 +17,7 @@ const cardOpen = document.querySelectorAll('.card-open')
 const card = document.querySelectorAll('.card')
 const boxCard = document.querySelector('.box-card')
 const btnNewGame = document.querySelector('.btn-new-game')
+const modulWin = document.querySelector('.modul-win')
 let randomNumOne = []
 let randomNumTwo = []
 
@@ -57,7 +58,7 @@ let cardOne = ''
 let flag = true
 
 boxCard.addEventListener('click', (event) => {
-	if (flag === true) {
+	if (flag === true && event.target.className != 'box-card') {
 		event.target.classList.add('card-open-show')
 		if (event.target.className !== 'card-open card-open-show'){
 			if (counter % 2 !== 0) {
@@ -127,6 +128,32 @@ const getOpenCard = () => {
 
 const winGame = (counterOpenCard) => {
 	if (counterOpenCard === card.length) {
-		alert('WIN!')
+		modulWin.classList.add('modul-win-open')
 	}
 }
+
+///Show modul win
+const btnWin = document.querySelector('.btn-win')
+const inputWin = document.querySelector('.input-win')
+
+
+//post in record
+btnWin.addEventListener('click', ()=> {
+	const scoreRecord = {}
+	if (inputWin.value != 0) {
+		scoreRecord[inputWin.value] = counter
+		localStorage.setItem('scoreUser', JSON.stringify(scoreRecord))
+		modulWin.classList.remove('modul-win-open')
+	}
+})
+//
+
+//Show record
+const btnScore = document.querySelector('.btn-score')
+
+btnScore.addEventListener('click', ()=> {
+	let dataUser = localStorage.getItem('scoreUser')
+	let dataUserScore = JSON.parse(dataUser)
+	console.log(dataUserScore)
+})
+//

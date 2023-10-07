@@ -109,3 +109,38 @@ a {
 .logo:hover {
 	opacity: 0.8;
 }
+
+.modul-win {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 3;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #4889d4e7;
+	padding: 15px 50px;
+	border-radius: 15px;
+	
+}
+
+.modul-win-open {
+	display: flex;
+}
+
+.text-win {
+	font-size: 24px;
+	margin-bottom: 10px;
+	color: #fff;
+}
+
+.box-win {
+	margin-bottom: 10px;
+	
+}
+
+.btn-win {
+
+}
