@@ -23,6 +23,12 @@ a {
 	justify-content: space-between;
 	align-items: center;
 }
+
+.score {
+	color: #ffffff;
+	font-size: 24px;
+}
+
 .btn-new-game {
 }
 .btn-score {

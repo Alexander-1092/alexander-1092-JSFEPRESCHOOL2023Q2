@@ -16,8 +16,9 @@ const listOpenCard = [
 const cardOpen = document.querySelectorAll('.card-open')
 const card = document.querySelectorAll('.card')
 const boxCard = document.querySelector('.box-card')
-const randomNumOne = []
-const randomNumTwo = []
+const btnNewGame = document.querySelector('.btn-new-game')
+let randomNumOne = []
+let randomNumTwo = []
 
 //we get two arrays of random numbers
 const getArrRandomNum = (arr) => {
@@ -34,13 +35,16 @@ getArrRandomNum(randomNumTwo)
 //
 
 //Combining arrays
-const rezult = [...randomNumOne, ...randomNumTwo]
+const rezult = () => {
+	return [...randomNumOne, ...randomNumTwo]
+}
+
 //
 
 //assigning pictures to the matrix
 const distributeCards = () => {
-	for (let index = 0; index < rezult.length; index++) {
-		cardOpen[index].src = listOpenCard[rezult[index]]
+	for (let index = 0; index < rezult().length; index++) {
+		cardOpen[index].src = listOpenCard[rezult()[index]]
 	}
 }
 
@@ -50,25 +54,79 @@ distributeCards()
 let counter = 0
 let OpenCardOne = ''
 let cardOne = ''
-
+let flag = true
 
 boxCard.addEventListener('click', (event) => {
-	event.target.classList.add('card-open-show')
-	if (event.target.className !== 'card-open card-open-show'){
-		if (counter % 2 !== 0) {
-			if (event.target.nextElementSibling.src === OpenCardOne.src){
-			} else {
-				setTimeout(removeCard, 1000, cardOne, event)
+	if (flag === true) {
+		event.target.classList.add('card-open-show')
+		if (event.target.className !== 'card-open card-open-show'){
+			if (counter % 2 !== 0) {
+				if (event.target.nextElementSibling.src === OpenCardOne.src){
+				} else {
+					setTimeout(removeCard, 800, cardOne, event)
+					flag = false
+					setTimeout(topFlag, 1000)
+				}		
 			}
-		} 
-		cardOne = event.target
-		OpenCardOne = event.target.nextElementSibling
-		counter++
+			winGame(getOpenCard())
+			cardOne = event.target
+			OpenCardOne = event.target.nextElementSibling
+			counter++
+			showCounter(counter)
+		}
 	}
 })
 
 
+const topFlag = () => {flag = true}
+
 function removeCard (cardOne, event) {
 	cardOne.classList.remove('card-open-show')
 	event.target.classList.remove('card-open-show')
+}
+
+const score = document.querySelector('.score')
+
+//show counter
+const showCounter = (counter) => {
+	score.textContent = `Score: ${counter}`
+}
+//
+
+//modul for new game
+btnNewGame.addEventListener('click', () => {
+	delPic()
+	randomNumOne = []
+	randomNumTwo = []
+	getArrRandomNum(randomNumOne)
+	getArrRandomNum(randomNumTwo)
+	counter = 0
+	score.textContent = `Score: ${counter}`
+	setTimeout(distributeCards, 500)
+})
+
+
+//del pic for new game
+const delPic = () => {
+	card.forEach(element => {
+		element.classList.remove('card-open-show')
+	})
+}
+//
+
+//finish game
+const getOpenCard = () => {
+	let counterOpenCard = 0
+	card.forEach(element => {
+		if (element.className === 'card card-open-show'){
+			counterOpenCard++
+		}
+	})
+	return counterOpenCard
+}
+
+const winGame = (counterOpenCard) => {
+	if (counterOpenCard === card.length) {
+		alert('WIN!')
+	}
 }
