@@ -135,25 +135,76 @@ const winGame = (counterOpenCard) => {
 ///Show modul win
 const btnWin = document.querySelector('.btn-win')
 const inputWin = document.querySelector('.input-win')
+const scoreRecord = {}
+
+//get data local str
+function getDataLocal() {
+	if (localStorage.getItem('scoreUser')){
+		let dataUser = localStorage.getItem('scoreUser')
+		let dataUserScore = JSON.parse(dataUser)
+		for (const key in dataUserScore) {
+			scoreRecord[key] = dataUserScore[key]
+		}
+	}
+}
+getDataLocal()
 
 
 //post in record
 btnWin.addEventListener('click', ()=> {
-	const scoreRecord = {}
 	if (inputWin.value != 0) {
 		scoreRecord[inputWin.value] = counter
 		localStorage.setItem('scoreUser', JSON.stringify(scoreRecord))
 		modulWin.classList.remove('modul-win-open')
 	}
+	inputWin.value = ''
+	getDataLocal()
+	SortRecordList()
+	openModulRec()
 })
 //
 
 //Show record
 const btnScore = document.querySelector('.btn-score')
+const textRecord = document.querySelector('.list-record')
+const btnRecord = document.querySelector('.btn-record')
+const modulRecord = document.querySelector('.modul-record')
+
+let record = document.querySelectorAll('.record')
 
 btnScore.addEventListener('click', ()=> {
-	let dataUser = localStorage.getItem('scoreUser')
-	let dataUserScore = JSON.parse(dataUser)
-	console.log(dataUserScore)
+	openModulRec()
+	SortRecordList()
 })
 //
+
+///
+btnRecord.addEventListener('click', () => {
+	modulRecord.classList.remove('modul-record-open')
+})
+
+
+const SortRecordList = () => {
+	let dataUser = localStorage.getItem('scoreUser')
+	let dataUserScore = JSON.parse(dataUser)
+	
+	let sortRecord = []
+	for (const key in dataUserScore) {
+		sortRecord.push([key, dataUserScore[key]])
+	}
+	sortRecord.sort(function(a, b) {
+		return a[1] - b[1]
+	})
+
+	for (let index = 0; index < record.length; index++) {
+		if (sortRecord[index]) {
+			record[index].textContent = `${sortRecord[index][0]} - ${sortRecord[index][1]}`
+		}
+	}		
+}
+
+
+const openModulRec = () => {
+	modulRecord.classList.add('modul-record-open')
+}
+

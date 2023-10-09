@@ -112,7 +112,7 @@ a {
 
 .modul-win {
 	display: none;
-	position: absolute;
+	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
@@ -143,4 +143,48 @@ a {
 
 .btn-win {
 
+}
+
+.modul-record {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 3;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #4889d4e7;
+	padding: 15px 50px;
+	border-radius: 15px;
+	max-width: 700px;
+	min-height: 400px;
+}
+
+
+.modul-record-open {
+	display: flex;
+} 
+
+
+.list-record {
+	flex-grow: 1;
+	margin-top: 20px;
+
+}
+
+.text-record {
+	font-size: 24px;
+	color: #ffffff;
+}
+
+.record {
+	font-size: 18px;
+	color: #ffffff;
+	margin: 5px 0px;
+}
+
+.btn-record {
+	flex-shrink: 0;
 }
