@@ -96,12 +96,12 @@ const showCounter = (counter) => {
 
 //modul for new game
 btnNewGame.addEventListener('click', () => {
-	delPic()
-	randomNumOne = []
-	randomNumTwo = []
-	getArrRandomNum(randomNumOne)
-	getArrRandomNum(randomNumTwo)
-	counter = 0
+	newGame()
+	// delPic()
+	// randomNumOne = []
+	// randomNumTwo = []
+	// getArrRandomNum(randomNumOne)
+	// getArrRandomNum(randomNumTwo)
 	score.textContent = `Score: ${counter}`
 	setTimeout(distributeCards, 500)
 })
@@ -114,6 +114,20 @@ const delPic = () => {
 	})
 }
 //
+
+///New game
+const newGame = () => {
+	delPic()
+	randomNumOne = []
+	randomNumTwo = []
+	getArrRandomNum(randomNumOne)
+	getArrRandomNum(randomNumTwo)
+	counter = 0
+	showCounter(counter)
+}
+
+
+
 
 //finish game
 const getOpenCard = () => {
@@ -181,6 +195,8 @@ btnScore.addEventListener('click', ()=> {
 ///
 btnRecord.addEventListener('click', () => {
 	modulRecord.classList.remove('modul-record-open')
+	newGame()
+
 })
 
 
