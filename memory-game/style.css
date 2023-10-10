@@ -1,5 +1,6 @@
 body {
 	background: url(./assets/img/warrper.jpg) 0 0/cover no-repeat;
+
 }
 
 a {
@@ -11,6 +12,12 @@ a {
 	flex-direction: column;
 	min-height: 100vh;
 }
+
+.wrapper-inactive {
+	opacity: 0.5;
+	pointer-events: none;
+}
+
 .header {
 }
 .container {

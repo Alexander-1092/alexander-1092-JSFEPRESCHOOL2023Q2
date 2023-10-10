@@ -18,6 +18,7 @@ const card = document.querySelectorAll('.card')
 const boxCard = document.querySelector('.box-card')
 const btnNewGame = document.querySelector('.btn-new-game')
 const modulWin = document.querySelector('.modul-win')
+const wrapper = document.querySelector('.wrapper')
 let randomNumOne = []
 let randomNumTwo = []
 
@@ -97,11 +98,6 @@ const showCounter = (counter) => {
 //modul for new game
 btnNewGame.addEventListener('click', () => {
 	newGame()
-	// delPic()
-	// randomNumOne = []
-	// randomNumTwo = []
-	// getArrRandomNum(randomNumOne)
-	// getArrRandomNum(randomNumTwo)
 	score.textContent = `Score: ${counter}`
 	setTimeout(distributeCards, 500)
 })
@@ -143,6 +139,7 @@ const getOpenCard = () => {
 const winGame = (counterOpenCard) => {
 	if (counterOpenCard === card.length) {
 		modulWin.classList.add('modul-win-open')
+		wrapper.classList.add('wrapper-inactive')
 	}
 }
 
@@ -195,6 +192,7 @@ btnScore.addEventListener('click', ()=> {
 ///
 btnRecord.addEventListener('click', () => {
 	modulRecord.classList.remove('modul-record-open')
+	wrapper.classList.remove('wrapper-inactive')
 	newGame()
 
 })
@@ -222,5 +220,6 @@ const SortRecordList = () => {
 
 const openModulRec = () => {
 	modulRecord.classList.add('modul-record-open')
+	wrapper.classList.add('wrapper-inactive')
 }
 
