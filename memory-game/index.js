@@ -13,6 +13,14 @@ const listOpenCard = [
 ]
 //
 
+const listSong = [
+	'./assets/music/X2Download.app - K-ON - No Thank You full (128 kbps).mp3',
+	'./assets/music/gul.mp3',
+	'./assets/music/kill.mp3',
+	'./assets/music/red.mp3'
+]
+
+
 const cardOpen = document.querySelectorAll('.card-open')
 const card = document.querySelectorAll('.card')
 const boxCard = document.querySelector('.box-card')
@@ -193,7 +201,7 @@ btnScore.addEventListener('click', ()=> {
 btnRecord.addEventListener('click', () => {
 	modulRecord.classList.remove('modul-record-open')
 	wrapper.classList.remove('wrapper-inactive')
-	newGame()
+	// newGame()
 
 })
 
@@ -216,10 +224,59 @@ const SortRecordList = () => {
 		}
 	}		
 }
-
+////
 
 const openModulRec = () => {
 	modulRecord.classList.add('modul-record-open')
 	wrapper.classList.add('wrapper-inactive')
 }
 
+
+
+
+///player
+const audio = document.querySelector('.audio');
+const btnPlay = document.querySelector('.btn-play')
+let playNow = false
+
+
+function playAudio() {
+  audio.currentTime = 0;
+  audio.play();
+}
+
+function pauseAudio() {
+  audio.pause();
+}
+
+
+
+btnPlay.addEventListener('click', ()=> {
+	if (playNow === false) {
+		playAudio()
+		playNow = true
+	} else {
+		pauseAudio()
+		playNow = false
+	}
+})
+
+
+let counterSong = 1
+
+
+const nextSong = () => {
+
+	if (audio.currentTime === audio.duration) {
+		audio.src = listSong[counterSong]
+		playAudio()
+		playNow = true
+		counterSong++
+	}
+	if (counterSong >= listSong.length) {
+		counterSong = 0
+	}
+}
+
+setInterval(nextSong, 1000)
+//

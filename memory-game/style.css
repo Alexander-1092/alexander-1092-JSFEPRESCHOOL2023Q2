@@ -227,9 +227,36 @@ a {
 .record {
 	font-size: 18px;
 	color: #ffffff;
-	margin: 5px 0px;
+	margin: 12px 0px;
 }
 
 .btn-record {
 	flex-shrink: 0;
+	padding: 5px 25px;
+	cursor: pointer;
+	background-color: #ffffff;
+	color: #4889d4e7;
+	font-weight: 700;
+	border: none;
+	border-radius: 20px;
 }
+
+.btn-record:hover {
+	color: #000;
+	font-weight: 400;
+}
+
+.btn-record:active {
+	color: #4889d4e7;
+	font-weight: 700;
+}
+
+.btn-play {
+	cursor: pointer;
+	width: 70px;
+	transition: all 0.5s ease;
+}
+
+.btn-play:hover {
+	transform: scale(1.2);
+} 
