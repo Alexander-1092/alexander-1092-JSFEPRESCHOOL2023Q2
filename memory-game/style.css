@@ -37,9 +37,42 @@ a {
 }
 
 .btn-new-game {
+	cursor: pointer;
+	border: none;
+	padding: 5px 20px;
+	border-radius: 13px;
+	background-color: #78adebd0;
+	color: #ffffff;
 }
+
+.btn-new-game:hover {
+	background-color: #3468a3d0;
+}
+
+.btn-new-game:active {
+	background-color: #78adebd0;
+}
+
+
 .btn-score {
+	cursor: pointer;
+	border: none;
+	padding: 5px 20px;
+	border-radius: 13px;
+	background-color: #78adebd0;
+	color: #ffffff;
 }
+
+.btn-score:hover {
+	background-color: #3468a3d0;
+} 
+
+.btn-score:active {
+	background-color: #78adebd0;
+} 
+
+
+
 .main {
 	flex-grow: 1;
 	display: grid;
@@ -103,18 +136,21 @@ a {
 
 .git {
 	color: #ffffff;
+	transition: all 0.5s ease;
 }
 
 .git:hover {
 	color: #8b8383;
+	transform: scale(1.3);
 }
 
 .logo {
 	width: 100px;
+	transition: all 0.5s ease;
 }
 
 .logo:hover {
-	opacity: 0.8;
+	transform: scale(1.3);
 }
 
 .modul-win {
