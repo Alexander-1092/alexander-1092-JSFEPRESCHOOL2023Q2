@@ -105,6 +105,7 @@ a {
 
 .card:hover {
 	filter: brightness(45%);
+
 }
 
 .card-open {
@@ -114,11 +115,12 @@ a {
 	top: 0;
 	left: 0;
 	z-index: 1;
-
+	transition: all 0.5s ease;
 }
 
 .card-open-show {
 	z-index: 1;
+	transform: perspective(80px) rotateY(-180deg);
 }
 
 
