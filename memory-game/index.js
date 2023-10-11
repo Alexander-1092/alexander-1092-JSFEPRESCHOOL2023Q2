@@ -9,7 +9,13 @@ const listOpenCard = [
 	'./assets/img/nagotora.jpg',
 	'./assets/img/onydjyki.jpg',
 	'./assets/img/saitama.jpg',
-	'./assets/img/Overlord_Second_Season_TV_2_767244776desctop.webp'
+	'./assets/img/Overlord_Second_Season_TV_2_767244776desctop.webp',
+
+	'./assets/img/sakuroso.jpg',
+	'./assets/img/silfi.jpg',
+	'./assets/img/teta.jpg',
+	'./assets/img/totoro.png',
+	'./assets/img/vanpanchmen_8.jpg'
 ]
 //
 
@@ -20,20 +26,34 @@ const listSong = [
 	'./assets/music/red.mp3'
 ]
 
+const boxCard = document.querySelector('.box-card')
+const easyLevel = 10
+const mediumLevel = 20
+const hardLevel = 30
+let numberOfPairs = 10
+
+
+for (let index = 0; index < mediumLevel; index++) {
+	boxCard.insertAdjacentHTML('afterbegin', '<div class="item-cards"></div>')
+	document.querySelector('.item-cards').insertAdjacentHTML('afterbegin', '<img src="./assets/img/felix.jpg" alt="" class="card-open">')
+	document.querySelector('.item-cards').insertAdjacentHTML('afterbegin', '<img src="./assets/img/cover_for_cards.jpg" alt="card" class="card">')
+}
+
+
 const cardOpen = document.querySelectorAll('.card-open')
 const card = document.querySelectorAll('.card')
-const boxCard = document.querySelector('.box-card')
 const btnNewGame = document.querySelector('.btn-new-game')
 const modulWin = document.querySelector('.modul-win')
 const wrapper = document.querySelector('.wrapper')
 let randomNumOne = []
 let randomNumTwo = []
 
+
 //we get two arrays of random numbers
 const getArrRandomNum = (arr) => {
-	while (arr.length != 10) {
-		let num = (Math.random() * 10).toFixed()
-		if (!arr.includes(num) && arr.length < 10 && num < 10) {
+	while (arr.length != numberOfPairs) {
+		let num = (Math.random() * 100).toFixed()
+		if (!arr.includes(num) && arr.length < numberOfPairs && num < numberOfPairs) {
 			arr.push(num)
 		}
 	}
