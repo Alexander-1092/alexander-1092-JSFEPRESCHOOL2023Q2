@@ -20,7 +20,6 @@ const listSong = [
 	'./assets/music/red.mp3'
 ]
 
-
 const cardOpen = document.querySelectorAll('.card-open')
 const card = document.querySelectorAll('.card')
 const boxCard = document.querySelector('.box-card')
@@ -67,6 +66,7 @@ let cardOne = ''
 let flag = true
 
 boxCard.addEventListener('click', (event) => {
+	playSound()
 	if (flag === true && event.target.className != 'box-card') {
 		event.target.classList.add('card-open-show')
 		if (event.target.className !== 'card-open card-open-show'){
@@ -121,6 +121,7 @@ const delPic = () => {
 
 ///New game
 const newGame = () => {
+	playSoundNewGame()
 	delPic()
 	randomNumOne = []
 	randomNumTwo = []
@@ -146,6 +147,7 @@ const getOpenCard = () => {
 
 const winGame = (counterOpenCard) => {
 	if (counterOpenCard === card.length) {
+		playSoundWin()
 		modulWin.classList.add('modul-win-open')
 		wrapper.classList.add('wrapper-inactive')
 	}
@@ -237,18 +239,26 @@ const openModulRec = () => {
 ///player
 const audio = document.querySelector('.audio');
 const btnPlay = document.querySelector('.btn-play')
+const lineStopSong = document.querySelector('.line-stop-song') 
 let playNow = false
 
+window.addEventListener('load', () => {
+	lineStopSong.classList.add('line-active')
+})
 
 function playAudio() {
+	lineStopSong.classList.remove('line-active')
   audio.currentTime = 0;
   audio.play();
 }
 
+
+
+
 function pauseAudio() {
+	lineStopSong.classList.add('line-active')
   audio.pause();
 }
-
 
 
 btnPlay.addEventListener('click', ()=> {
@@ -280,3 +290,27 @@ const nextSong = () => {
 
 setInterval(nextSong, 1000)
 //
+
+//sound card
+const soundCard = document.querySelector('.sound-card')
+
+function playSound() {
+  soundCard.currentTime = 0;
+  soundCard.play();
+}
+
+//sound win
+const soundWin = document.querySelector('.sound-win')
+
+function playSoundWin() {
+  soundWin.currentTime = 0;
+  soundWin.play();
+}
+
+//sounf new game
+const soundNewGame = document.querySelector('.sound-new-game')
+
+function playSoundNewGame() {
+  soundNewGame.currentTime = 0;
+  soundNewGame.play();
+}
