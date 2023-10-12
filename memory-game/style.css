@@ -205,6 +205,13 @@ a {
 
 }
 
+
+.NumberOfMoves {
+	margin-top: 5px;
+	color: #fff;
+}
+
+
 .modul-record {
 	display: none;
 	position: fixed;

@@ -27,13 +27,10 @@ const listSong = [
 ]
 
 const boxCard = document.querySelector('.box-card')
-const easyLevel = 10
-const mediumLevel = 20
-const hardLevel = 30
-let numberOfPairs = 10
+let selectLevel = 20
+let numberOfPairs = selectLevel / 2
 
-
-for (let index = 0; index < mediumLevel; index++) {
+for (let index = 0; index < selectLevel; index++) {
 	boxCard.insertAdjacentHTML('afterbegin', '<div class="item-cards"></div>')
 	document.querySelector('.item-cards').insertAdjacentHTML('afterbegin', '<img src="./assets/img/felix.jpg" alt="" class="card-open">')
 	document.querySelector('.item-cards').insertAdjacentHTML('afterbegin', '<img src="./assets/img/cover_for_cards.jpg" alt="card" class="card">')
@@ -165,18 +162,24 @@ const getOpenCard = () => {
 	return counterOpenCard
 }
 
-const winGame = (counterOpenCard) => {
-	if (counterOpenCard === card.length) {
-		playSoundWin()
-		modulWin.classList.add('modul-win-open')
-		wrapper.classList.add('wrapper-inactive')
-	}
-}
 
 ///Show modul win
 const btnWin = document.querySelector('.btn-win')
 const inputWin = document.querySelector('.input-win')
 const scoreRecord = {}
+
+
+const NumberOfMoves = document.querySelector('.NumberOfMoves')
+
+const winGame = (counterOpenCard) => {
+	if (counterOpenCard === card.length) {
+		playSoundWin()
+		modulWin.classList.add('modul-win-open')
+		wrapper.classList.add('wrapper-inactive')
+		NumberOfMoves.textContent = `Number Of moves: ${counter + 1}`
+	}
+}
+
 
 //get data local str
 function getDataLocal() {
@@ -193,15 +196,15 @@ getDataLocal()
 
 //post in record
 btnWin.addEventListener('click', ()=> {
-	if (inputWin.value != 0) {
+	if (inputWin.value.length !== 0) {
 		scoreRecord[inputWin.value] = counter
 		localStorage.setItem('scoreUser', JSON.stringify(scoreRecord))
 		modulWin.classList.remove('modul-win-open')
+		inputWin.value = ''
+		getDataLocal()
+		SortRecordList()
+		openModulRec()
 	}
-	inputWin.value = ''
-	getDataLocal()
-	SortRecordList()
-	openModulRec()
 })
 //
 
