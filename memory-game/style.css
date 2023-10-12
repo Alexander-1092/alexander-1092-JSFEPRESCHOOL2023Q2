@@ -89,8 +89,17 @@ a {
 
 .item-cards {
 	position: relative;
-	width: 100px;
+	width: 85px;
 }
+
+
+@media (max-width:986px) {
+	.item-cards {
+		width: 70px;
+	}
+}
+
+
 
 .card {
 	position: relative;
