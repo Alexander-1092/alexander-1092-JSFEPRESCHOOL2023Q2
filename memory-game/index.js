@@ -337,3 +337,7 @@ function playSoundNewGame() {
   soundNewGame.currentTime = 0;
   soundNewGame.play();
 }
+
+console.log(
+	'Все требования к игре (https://github.com/rolling-scopes-school/tasks/blob/master/tasks/js30%23/js30-8.md) выполнены Дополнительно подключил звуковые эффекты при открытие карты и при новой игре, также встроен аудио-плеер'
+)
